@@ -1,0 +1,162 @@
+{
+  "tools": [
+    {
+      "type": "function",
+      "async": false,
+      "messages": [
+        {
+          "type": "request-start",
+          "content": "Let me look that up for you..."
+        }
+      ],
+      "function": {
+        "name": "search_knowledge_base",
+        "description": "Search the TalentBridge knowledge base for accurate information about job roles, company policies, benefits, qualification criteria, screening process, FAQs, and objection handling. Use this function for ANY factual question about TalentBridge, its positions, or policies. NEVER answer factual questions without consulting this function first.",
+        "parameters": {
+          "type": "object",
+          "properties": {
+            "query": {
+              "type": "string",
+              "description": "The search query based on what the candidate is asking about. Be specific and include key terms."
+            },
+            "category": {
+              "type": "string",
+              "enum": [
+                "jobs",
+                "benefits",
+                "process",
+                "qualification",
+                "objections",
+                "company",
+                "faq",
+                "general"
+              ],
+              "description": "Optional category to narrow the search. Use 'jobs' for role details, 'benefits' for compensation/perks, 'process' for screening/interview steps, 'qualification' for eligibility rules, 'objections' for handling candidate concerns, 'company' for about/culture info, 'faq' for common questions."
+            }
+          },
+          "required": ["query"]
+        }
+      },
+      "server": {
+        "url": "{{YOUR_NGROK_URL}}/api/vapi/webhook"
+      }
+    },
+    {
+      "type": "function",
+      "async": false,
+      "messages": [
+        {
+          "type": "request-start",
+          "content": "Let me save your information..."
+        }
+      ],
+      "function": {
+        "name": "save_lead",
+        "description": "Save the candidate's screening information and qualification score to the CRM. Call this at the end of the screening conversation after collecting all required information.",
+        "parameters": {
+          "type": "object",
+          "properties": {
+            "full_name": {
+              "type": "string",
+              "description": "Candidate's full name"
+            },
+            "age": {
+              "type": "integer",
+              "description": "Candidate's age"
+            },
+            "city": {
+              "type": "string",
+              "description": "Candidate's current city"
+            },
+            "email": {
+              "type": "string",
+              "description": "Candidate's email address"
+            },
+            "current_role": {
+              "type": "string",
+              "description": "Candidate's current job title"
+            },
+            "experience_years": {
+              "type": "integer",
+              "description": "Total years of relevant experience"
+            },
+            "applied_position": {
+              "type": "string",
+              "description": "The position the candidate applied for"
+            },
+            "key_skills": {
+              "type": "array",
+              "items": {"type": "string"},
+              "description": "Key technical or professional skills"
+            },
+            "current_salary": {
+              "type": "string",
+              "description": "Current compensation"
+            },
+            "expected_salary": {
+              "type": "string",
+              "description": "Expected compensation"
+            },
+            "notice_period": {
+              "type": "string",
+              "description": "Notice period at current employer"
+            },
+            "education": {
+              "type": "string",
+              "description": "Highest education qualification"
+            },
+            "reason_for_change": {
+              "type": "string",
+              "description": "Why the candidate is looking for a change"
+            },
+            "qualification_score": {
+              "type": "string",
+              "enum": ["hot", "warm", "cold"],
+              "description": "Qualification score based on screening criteria: hot (meets all requirements, available soon), warm (meets most, minor gaps), cold (significant mismatches)"
+            },
+            "notes": {
+              "type": "string",
+              "description": "Additional notes from the screening call"
+            }
+          },
+          "required": ["full_name", "city", "applied_position", "qualification_score"]
+        }
+      },
+      "server": {
+        "url": "{{YOUR_NGROK_URL}}/api/vapi/webhook"
+      }
+    },
+    {
+      "type": "function",
+      "async": false,
+      "messages": [
+        {
+          "type": "request-start",
+          "content": "I'm connecting you with a human recruiter now. Please hold for just a moment."
+        }
+      ],
+      "function": {
+        "name": "transfer_to_human",
+        "description": "Transfer the call to a human recruiter. Use when: the candidate explicitly asks for a human, complex negotiation is needed, disability accommodations are requested, legal/compliance questions arise, or you've failed to answer 3+ questions from the knowledge base.",
+        "parameters": {
+          "type": "object",
+          "properties": {
+            "reason": {
+              "type": "string",
+              "description": "Why the call is being transferred"
+            },
+            "priority": {
+              "type": "string",
+              "enum": ["low", "medium", "high"],
+              "description": "Priority level: high for upset candidates or compliance issues, medium for standard transfers, low for informational follow-ups"
+            }
+          },
+          "required": ["reason"]
+        }
+      },
+      "server": {
+        "url": "{{YOUR_NGROK_URL}}/api/vapi/webhook"
+      }
+    }
+  ]
+}

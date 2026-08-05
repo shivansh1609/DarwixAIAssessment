@@ -1,0 +1,23 @@
+# Environment
+.env
+venv/
+__pycache__/
+*.pyc
+
+# ChromaDB persistence
+q2_knowledge_base/chroma_db/
+
+# IDE
+.vscode/
+.idea/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Recordings (keep but don't commit large files)
+# *.mp3
+# *.wav
+
+# Logs
+*.log

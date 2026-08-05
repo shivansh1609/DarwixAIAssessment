@@ -1,0 +1,74 @@
+{
+  "record_schema": {
+    "record_id": "string — Unique identifier (format: kb_{category}_{hash}_c{chunk_index})",
+    "title": "string — Section heading or page title",
+    "content": "string — Chunk content (300-500 tokens typical)",
+    "content_type": "string — faq_pair | section | job_overview | job_responsibilities | job_qualifications | window | full_document",
+    "category": "string — jobs | benefits | process | qualification | objections | company | faq | internal",
+    "subcategory": "string — More specific classification",
+    "source_url": "string — Original URL or file path",
+    "source_type": "string — website | pdf | internal_document",
+    "source_page_title": "string — Title of the source page",
+    "extraction_date": "string — ISO 8601 date",
+    "version": "string — Semantic version (1.0)",
+    "pii_flag": "boolean — Whether the original content contained PII",
+    "chunk_index": "integer — Position within parent document chunks",
+    "total_chunks": "integer — Total chunks from parent document",
+    "parent_record_id": "string — Groups related chunks",
+    "tags": "array[string] — Up to 10 keyword tags",
+    "last_verified": "string — Date of last content verification",
+    "quality_score": "float — 0.0-1.0 quality assessment",
+    "language": "string — ISO language code"
+  },
+  "taxonomy": {
+    "jobs": {
+      "description": "Job listings and role details",
+      "subcategories": ["job_listings", "support_roles"]
+    },
+    "benefits": {
+      "description": "Employee benefits and compensation",
+      "subcategories": ["employee_benefits"]
+    },
+    "process": {
+      "description": "Screening and interview process",
+      "subcategories": ["screening_process", "interview_preparation", "screening_checklist"]
+    },
+    "qualification": {
+      "description": "Candidate qualification rules and scoring",
+      "subcategories": ["scoring_rules", "screening_policies"]
+    },
+    "objections": {
+      "description": "Objection handling scripts",
+      "subcategories": ["objection_handling"]
+    },
+    "company": {
+      "description": "Company information",
+      "subcategories": ["about", "culture_values", "technology"]
+    },
+    "faq": {
+      "description": "Frequently asked questions",
+      "subcategories": ["general_faq"]
+    },
+    "internal": {
+      "description": "Internal documents (PII-flagged)",
+      "subcategories": ["test_data"]
+    }
+  },
+  "embedding_model": "all-MiniLM-L6-v2",
+  "embedding_dimensions": 384,
+  "vector_store": "ChromaDB",
+  "similarity_metric": "cosine",
+  "chunking_strategies": [
+    "faq_pair — Keeps Q&A as single chunk",
+    "section — Splits on headings",
+    "job_listing — Separates job overview/responsibilities/qualifications/benefits",
+    "sliding_window — 400 tokens with 80 overlap for long prose"
+  ],
+  "retrieval_config": {
+    "top_k": 5,
+    "min_quality_score": 0.5,
+    "pii_exclusion": true,
+    "category_filtering": true
+  },
+  "citation_format": "[Source: {title} | {source_url}]"
+}

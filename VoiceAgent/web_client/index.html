@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TalentBridge — AI Screening Call</title>
+    <meta name="description" content="AI-powered candidate screening voice agent for TalentBridge recruitment">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <div class="page-glow page-glow-one"></div>
+    <div class="page-glow page-glow-two"></div>
+
+    <div class="app-shell">
+        <header class="topbar">
+            <div class="brand">
+                <div class="brand-mark">TB</div>
+                <div>
+                    <h1>TalentBridge</h1>
+                    <p class="subtitle">AI candidate screening • Premium voice recruiting</p>
+                </div>
+            </div>
+
+            <div class="header-actions">
+                <div class="pill-pill">Live assessment</div>
+                <div class="status-badge" id="statusBadge">
+                    <span class="status-dot"></span>
+                    <span id="statusText">Ready</span>
+                </div>
+            </div>
+        </header>
+
+        <main class="main-content">
+            <section class="call-panel">
+                <div class="panel-intro">
+                    <div class="eyebrow">Voice agent • recruiter copilot</div>
+                    <h2>Screen candidates with an experience that feels premium, fast, and human.</h2>
+                    <p>Launch a polished conversational interview with instant transcript capture and live status insight.</p>
+                </div>
+
+                <div class="hero-grid">
+                    <div class="agent-card">
+                        <div class="agent-avatar" id="agentAvatar">
+                            <div class="avatar-ring">
+                                <div class="avatar-inner">S</div>
+                            </div>
+                            <div class="agent-meta">
+                                <p class="agent-name">Sarah</p>
+                                <p class="agent-role">Screening coordinator</p>
+                            </div>
+                        </div>
+
+                        <div class="snapshot-grid">
+                            <div class="snapshot-card">
+                                <span class="snapshot-label">Role fit</span>
+                                <span class="snapshot-value">High intent</span>
+                            </div>
+                            <div class="snapshot-card">
+                                <span class="snapshot-label">Signal quality</span>
+                                <span class="snapshot-value">Excellent</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="control-card">
+                        <button class="btn-call" id="btnCall" onclick="toggleCall()" aria-label="Start or end the screening call">
+                            <span class="mic-shell">
+                                <svg id="micIcon" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"/>
+                                    <path d="M19 10v2a7 7 0 0 1-14 0v-2"/>
+                                    <line x1="12" y1="19" x2="12" y2="23"/>
+                                    <line x1="8" y1="23" x2="16" y2="23"/>
+                                </svg>
+                            </span>
+                            <span class="btn-copy" id="btnText">Start Screening Call</span>
+                        </button>
+                        <p class="call-hint" id="callHint">Click to begin your screening conversation with Sarah</p>
+
+                        <div class="waveform" id="waveform" aria-hidden="true">
+                            <div class="wave-bar"></div>
+                            <div class="wave-bar"></div>
+                            <div class="wave-bar"></div>
+                            <div class="wave-bar"></div>
+                            <div class="wave-bar"></div>
+                            <div class="wave-bar"></div>
+                            <div class="wave-bar"></div>
+                            <div class="wave-bar"></div>
+                            <div class="wave-bar"></div>
+                        </div>
+
+                        <div class="signal-row">
+                            <div class="signal-pill">
+                                <span class="signal-dot"></span>
+                                Connection stable
+                            </div>
+                            <div class="signal-pill">
+                                <span class="signal-dot"></span>
+                                Transcript auto-saved
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="transcript-panel">
+                <div class="panel-header">
+                    <div>
+                        <p class="panel-title">Live transcript</p>
+                        <p class="panel-subtitle">Real-time conversation stream</p>
+                    </div>
+                    <div class="transcript-controls">
+                        <button class="btn-sm" onclick="clearTranscript()">Clear</button>
+                        <button class="btn-sm" onclick="downloadTranscript()">Download</button>
+                    </div>
+                </div>
+                <div class="transcript-body" id="transcriptBody" aria-live="polite">
+                    <div class="transcript-empty">
+                        <div class="empty-icon">✦</div>
+                        <p>Your transcript will appear here when the call starts.</p>
+                        <p class="text-muted">Uses your browser’s built-in speech recognition — no API key needed.</p>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <footer class="info-bar">
+            <div class="info-item">
+                <span class="info-label">LLM</span>
+                <span class="info-value">Groq · Llama 3.1 70B (Free)</span>
+            </div>
+            <div class="info-item">
+                <span class="info-label">STT</span>
+                <span class="info-value">Web Speech API (Free)</span>
+            </div>
+            <div class="info-item">
+                <span class="info-label">TTS</span>
+                <span class="info-value">Edge TTS (Free)</span>
+            </div>
+            <div class="info-item">
+                <span class="info-label">KB</span>
+                <span class="info-value" id="kbStatus">Loading...</span>
+            </div>
+        </footer>
+    </div>
+
+    <script src="/static/app.js"></script>
+</body>
+</html>

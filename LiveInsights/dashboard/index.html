@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Live Call Insights Dashboard</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg: #060816;
+            --bg2: rgba(10, 15, 31, 0.82);
+            --bg3: rgba(17, 23, 43, 0.95);
+            --text: #f4f7ff;
+            --text2: #9ba7c4;
+            --text3: #6f7b99;
+            --accent: #4f7cff;
+            --accent-2: #6f5dff;
+            --accent-soft: #74dfff;
+            --red: #ff647c;
+            --orange: #ffb347;
+            --green: #3dedb1;
+            --blue: #4ec7ff;
+            --border: rgba(255,255,255,0.12);
+            --radius: 24px;
+            --shadow: 0 24px 70px rgba(4,10,24,0.4);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Inter', sans-serif;
+            background:
+                radial-gradient(circle at top left, rgba(79, 124, 255, 0.16), transparent 28%),
+                linear-gradient(135deg, #060816 0%, #0b1122 45%, #060816 100%);
+            color: var(--text);
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        .dashboard-shell {
+            max-width: 1380px;
+            margin: 0 auto;
+            padding: 24px;
+            min-height: 100vh;
+        }
+
+        .dashboard {
+            display: grid;
+            grid-template-columns: 1.2fr 0.8fr;
+            gap: 20px;
+        }
+
+        .glass {
+            background: var(--bg2);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+            backdrop-filter: blur(24px);
+        }
+
+        .header {
+            grid-column: 1 / -1;
+            padding: 22px 24px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .header h1 {
+            font-size: 22px;
+            letter-spacing: -0.02em;
+            margin-bottom: 4px;
+        }
+
+        .header p {
+            font-size: 13px;
+            color: var(--text2);
+        }
+
+        .header-right { display: flex; gap: 12px; align-items: center; }
+
+        .conn-status {
+            display: flex; align-items: center; gap: 8px;
+            padding: 9px 13px; border-radius: 999px;
+            font-size: 12px; font-weight: 600;
+            border: 1px solid rgba(255,255,255,0.08);
+        }
+        .conn-status.connected { background: rgba(61,237,177,0.12); color: var(--green); }
+        .conn-status.disconnected { background: rgba(255,100,124,0.12); color: var(--red); }
+        .conn-dot { width: 7px; height: 7px; border-radius: 50%; background: currentColor; }
+
+        .connect-btn {
+            padding: 10px 14px;
+            border-radius: 999px;
+            background: linear-gradient(135deg, var(--accent), var(--accent-2));
+            color: white;
+            font-size: 12px;
+            font-weight: 700;
+            border: none;
+            cursor: pointer;
+        }
+
+        .hero-grid {
+            grid-column: 1 / -1;
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 14px;
+        }
+
+        .metric-card {
+            padding: 16px 16px 14px;
+            min-height: 108px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .metric-label { font-size: 10px; color: var(--text3); text-transform: uppercase; letter-spacing: 0.14em; margin-bottom: 8px; }
+        .metric-value { font-size: 24px; font-weight: 700; letter-spacing: -0.03em; }
+        .metric-unit { font-size: 11px; color: var(--text2); margin-top: 4px; }
+
+        .transcript-section,
+        .nudges-section,
+        .insights-section {
+            padding: 16px;
+            display: flex;
+            flex-direction: column;
+            min-height: 420px;
+        }
+
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 12px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid rgba(255,255,255,0.08);
+        }
+
+        .section-title {
+            font-size: 14px;
+            font-weight: 700;
+            letter-spacing: 0.02em;
+        }
+
+        .section-kicker {
+            font-size: 11px;
+            color: var(--text3);
+            text-transform: uppercase;
+            letter-spacing: 0.14em;
+        }
+
+        .transcript-body,
+        .nudges-body {
+            flex: 1;
+            overflow-y: auto;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .t-msg {
+            padding: 12px 14px;
+            border-radius: 16px;
+            font-size: 13px;
+            line-height: 1.55;
+            background: rgba(255,255,255,0.05);
+            border: 1px solid rgba(255,255,255,0.06);
+            animation: fadeIn 0.3s ease;
+        }
+
+        .t-msg.agent { border-left: 3px solid var(--blue); }
+        .t-msg.customer { border-left: 3px solid var(--accent); }
+        .t-msg .speaker { font-size: 10px; font-weight: 700; text-transform: uppercase; color: var(--text3); margin-bottom: 4px; }
+        .t-msg .time { font-size: 10px; color: var(--text3); float: right; }
+
+        .nudge-card {
+            padding: 12px 14px;
+            border-radius: 16px;
+            border-left: 4px solid;
+            animation: slideIn 0.35s ease;
+            background: rgba(255,255,255,0.05);
+        }
+
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; } }
+        @keyframes slideIn { from { opacity: 0; transform: translateX(10px); } to { opacity: 1; } }
+
+        .nudge-card.CRITICAL { border-color: var(--red); background: rgba(255,100,124,0.12); }
+        .nudge-card.HIGH { border-color: var(--orange); background: rgba(255,179,71,0.12); }
+        .nudge-card.MEDIUM { border-color: var(--blue); background: rgba(78,199,255,0.12); }
+        .nudge-card.LOW { border-color: var(--green); background: rgba(61,237,177,0.12); }
+
+        .nudge-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px; }
+        .nudge-priority { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.12em; }
+        .nudge-card.CRITICAL .nudge-priority { color: var(--red); }
+        .nudge-card.HIGH .nudge-priority { color: var(--orange); }
+        .nudge-card.MEDIUM .nudge-priority { color: var(--blue); }
+        .nudge-card.LOW .nudge-priority { color: var(--green); }
+
+        .nudge-dismiss { background: none; border: none; color: var(--text3); cursor: pointer; font-size: 16px; }
+        .nudge-message { font-size: 13px; line-height: 1.55; margin-bottom: 6px; }
+        .nudge-evidence { font-size: 11px; color: var(--text3); font-style: italic; }
+        .nudge-meta { font-size: 10px; color: var(--text3); margin-top: 4px; }
+        .nudge-empty { text-align: center; color: var(--text3); padding: 36px 12px; font-size: 13px; }
+
+        .insight-grid {
+            display: grid;
+            gap: 12px;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+
+        .insight-card {
+            padding: 14px;
+            border-radius: 16px;
+            background: rgba(255,255,255,0.05);
+            border: 1px solid rgba(255,255,255,0.06);
+        }
+
+        .insight-card strong { display: block; font-size: 15px; margin-bottom: 6px; }
+        .insight-card span { color: var(--text2); font-size: 13px; line-height: 1.55; }
+
+        ::-webkit-scrollbar { width: 6px; }
+        ::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.14); border-radius: 999px; }
+
+        @media (max-width: 1100px) {
+            .dashboard { grid-template-columns: 1fr; }
+            .hero-grid { grid-template-columns: repeat(3, 1fr); }
+        }
+
+        @media (max-width: 768px) {
+            .dashboard-shell { padding: 16px; }
+            .header { flex-direction: column; align-items: flex-start; gap: 12px; }
+            .hero-grid { grid-template-columns: repeat(2, 1fr); }
+            .insight-grid { grid-template-columns: 1fr; }
+        }
+
+        @media (max-width: 560px) {
+            .hero-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+    <div class="dashboard-shell">
+        <div class="dashboard">
+            <header class="header glass">
+                <div>
+                    <h1>Live call insights & nudges</h1>
+                    <p>Realtime guidance for voice screening performance and candidate signals.</p>
+                </div>
+                <div class="header-right">
+                    <div class="conn-status disconnected" id="connStatus">
+                        <span class="conn-dot"></span>
+                        <span id="connText">Disconnected</span>
+                    </div>
+                    <button class="connect-btn" onclick="connect()">Connect</button>
+                </div>
+            </header>
+
+            <div class="hero-grid">
+                <div class="metric-card glass">
+                    <div class="metric-label">ASR Latency</div>
+                    <div class="metric-value" id="metricAsr">—</div>
+                    <div class="metric-unit">P50 ms</div>
+                </div>
+                <div class="metric-card glass">
+                    <div class="metric-label">Extraction</div>
+                    <div class="metric-value" id="metricExtraction">—</div>
+                    <div class="metric-unit">P50 ms</div>
+                </div>
+                <div class="metric-card glass">
+                    <div class="metric-label">E2E Latency</div>
+                    <div class="metric-value" id="metricE2e">—</div>
+                    <div class="metric-unit">P50 ms</div>
+                </div>
+                <div class="metric-card glass">
+                    <div class="metric-label">Nudges</div>
+                    <div class="metric-value" id="metricNudges">0</div>
+                    <div class="metric-unit">generated</div>
+                </div>
+                <div class="metric-card glass">
+                    <div class="metric-label">Suppressed</div>
+                    <div class="metric-value" id="metricSuppressed">0</div>
+                    <div class="metric-unit">filtered</div>
+                </div>
+            </div>
+
+            <section class="transcript-section glass">
+                <div class="section-header">
+                    <div>
+                        <div class="section-title">Live transcript</div>
+                        <div class="section-kicker">Streaming signals</div>
+                    </div>
+                </div>
+                <div class="transcript-body" id="transcriptBody">
+                    <p style="color:var(--text3);text-align:center;padding:40px 12px;font-size:13px;line-height:1.7;">
+                        Waiting for pipeline to start...<br>
+                        Run: <code>python pipeline/orchestrator.py</code>
+                    </p>
+                </div>
+            </section>
+
+            <section class="nudges-section glass">
+                <div class="section-header">
+                    <div>
+                        <div class="section-title">Active nudges</div>
+                        <div class="section-kicker">Priority alerts</div>
+                    </div>
+                </div>
+                <div class="nudges-body" id="nudgesBody">
+                    <div class="nudge-empty">No active nudges</div>
+                </div>
+            </section>
+
+            <section class="insights-section glass">
+                <div class="section-header">
+                    <div>
+                        <div class="section-title">Signal intelligence</div>
+                        <div class="section-kicker">Live overview</div>
+                    </div>
+                </div>
+                <div class="insight-grid">
+                    <div class="insight-card">
+                        <strong>Sentiment trend</strong>
+                        <span>Candidate enthusiasm is steady and the conversation remains engaged.</span>
+                    </div>
+                    <div class="insight-card">
+                        <strong>Confidence score</strong>
+                        <span>Current risk indicators remain low while the agent stays responsive.</span>
+                    </div>
+                    <div class="insight-card">
+                        <strong>Live status</strong>
+                        <span>Pipeline activity is visible in real time with instant nudge updates.</span>
+                    </div>
+                    <div class="insight-card">
+                        <strong>Response focus</strong>
+                        <span>Key moments are highlighted for faster recruiter follow-up.</span>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
+
+    <script>
+        let ws = null;
+        let nudgeCount = 0;
+        let suppressedCount = 0;
+
+        function connect() {
+            ws = new WebSocket('ws://localhost:8765');
+
+            ws.onopen = () => {
+                setConnection(true);
+            };
+
+            ws.onclose = () => {
+                setConnection(false);
+                setTimeout(connect, 3000);
+            };
+
+            ws.onmessage = (event) => {
+                const data = JSON.parse(event.data);
+                handleEvent(data);
+            };
+        }
+
+        function setConnection(isConnected) {
+            const status = document.getElementById('connStatus');
+            const text = document.getElementById('connText');
+            status.className = `conn-status ${isConnected ? 'connected' : 'disconnected'}`;
+            text.textContent = isConnected ? 'Connected' : 'Disconnected';
+        }
+
+        function handleEvent(data) {
+            switch (data.type) {
+                case 'transcript':
+                    addTranscript(data);
+                    break;
+                case 'nudge':
+                    addNudge(data);
+                    nudgeCount++;
+                    document.getElementById('metricNudges').textContent = nudgeCount;
+                    if (data.latency) {
+                        document.getElementById('metricAsr').textContent = data.latency.asr_latency_ms;
+                        document.getElementById('metricExtraction').textContent = data.latency.extraction_latency_ms;
+                        document.getElementById('metricE2e').textContent = data.latency.e2e_latency_ms;
+                    }
+                    break;
+                case 'signal_suppressed':
+                    suppressedCount++;
+                    document.getElementById('metricSuppressed').textContent = suppressedCount;
+                    break;
+                case 'pipeline_complete':
+                    if (data.report) {
+                        document.getElementById('metricAsr').textContent = data.report.asr_latency?.p50 || '—';
+                        document.getElementById('metricExtraction').textContent = data.report.extraction_latency?.p50 || '—';
+                        document.getElementById('metricE2e').textContent = data.report.e2e_latency?.p50 || '—';
+                    }
+                    break;
+            }
+        }
+
+        function addTranscript(data) {
+            const body = document.getElementById('transcriptBody');
+            if (body.querySelector('p')) body.innerHTML = '';
+
+            const div = document.createElement('div');
+            div.className = `t-msg ${data.speaker}`;
+            const mins = Math.floor(data.timestamp / 60);
+            const secs = Math.floor(data.timestamp % 60).toString().padStart(2, '0');
+            div.innerHTML = `
+                <span class="time">${mins}:${secs}</span>
+                <div class="speaker">${data.speaker}</div>
+                <div>${data.text}</div>
+            `;
+            body.appendChild(div);
+            body.scrollTop = body.scrollHeight;
+        }
+
+        function addNudge(data) {
+            const body = document.getElementById('nudgesBody');
+            const empty = body.querySelector('.nudge-empty');
+            if (empty) empty.remove();
+
+            const div = document.createElement('div');
+            div.className = `nudge-card ${data.priority}`;
+            div.id = `nudge-${data.nudge_id}`;
+            div.innerHTML = `
+                <div class="nudge-header">
+                    <span class="nudge-priority">${data.priority} · ${data.type}</span>
+                    <button class="nudge-dismiss" onclick="dismissNudge('${data.nudge_id}')">×</button>
+                </div>
+                <div class="nudge-message">${data.message}</div>
+                <div class="nudge-evidence">"${data.evidence}"</div>
+                <div class="nudge-meta">Confidence: ${(data.confidence * 100).toFixed(0)}% · E2E: ${data.latency?.e2e_latency_ms || '?'}ms</div>
+            `;
+            body.insertBefore(div, body.firstChild);
+        }
+
+        function dismissNudge(id) {
+            const el = document.getElementById(`nudge-${id}`);
+            if (el) el.remove();
+            if (ws && ws.readyState === WebSocket.OPEN) {
+                ws.send(JSON.stringify({ action: 'dismiss', nudge_id: id }));
+            }
+        }
+
+        connect();
+    </script>
+</body>
+</html>

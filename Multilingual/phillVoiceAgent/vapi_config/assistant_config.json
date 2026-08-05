@@ -1,0 +1,48 @@
+{
+  "assistant": {
+    "name": "TalentBridge Philippines — Screening Agent",
+    "model": {
+      "provider": "openai",
+      "model": "gpt-4o",
+      "temperature": 0.4,
+      "maxTokens": 500,
+      "systemMessage": "{{SYSTEM_PROMPT_FROM_system_prompt_ph.md}}"
+    },
+    "voice": {
+      "provider": "11labs",
+      "voiceId": "rachel",
+      "_note": "Ideally use a Filipino voice. ElevenLabs may offer Filipino-accented English voices. Alternative: use Azure Filipino TTS (fil-PH-BlessicaNeural) or Google Cloud TTS (fil-PH).",
+      "stability": 0.6,
+      "similarityBoost": 0.8
+    },
+    "transcriber": {
+      "provider": "deepgram",
+      "model": "nova-2",
+      "language": "en",
+      "_note_language": "Deepgram does not have a dedicated Tagalog model. Using English (nova-2) which handles Taglish reasonably well since Filipino speakers often use English words. Alternative: Google Cloud STT supports fil-PH. For production, test Whisper with language='tl'.",
+      "smartFormat": true
+    },
+    "firstMessage": "Magandang araw po! Ako po si Maria mula sa TalentBridge Philippines. Salamat po sa pag-apply niyo. Gusto ko lang po sana mag-quick screening call — mga 15 to 20 minutes lang po. Pwede ko po bang malaman ang pangalan niyo at kung anong position po ang in-apply niyo?",
+    "serverUrl": "{{YOUR_NGROK_URL}}/api/vapi/webhook",
+    "endCallMessage": "Maraming salamat po sa oras niyo! I-review po ng team namin ang profile niyo at mag-update kami within 3 to 5 business days. Ingat po kayo!",
+    "silenceTimeoutSeconds": 15,
+    "maxDurationSeconds": 1200,
+    "recordingEnabled": true
+  },
+  "asr_evaluation": {
+    "provider": "deepgram",
+    "model": "nova-2",
+    "languages_tested": ["en", "tl (via en model)"],
+    "code_switching_behavior": "Handles Taglish reasonably — English words recognized accurately, Filipino connecting words (po, ng, mga, sa) sometimes misinterpreted or dropped. Accuracy drops ~15% for pure Tagalog vs pure English.",
+    "approximate_quality": "80-85% for Taglish, 90-95% for pure English, 70-80% for pure Tagalog",
+    "observed_errors": [
+      "\"po\" sometimes transcribed as \"po\" correctly but occasionally as \"though\" or dropped",
+      "\"ba\" (question particle) sometimes missed",
+      "\"niyo\" sometimes transcribed as \"new\" or \"neo\"",
+      "Filipino words with glottal stops may be split incorrectly",
+      "Rapid Tagalog speech reduces accuracy significantly"
+    ],
+    "regional_accent_notes": "Manila/Metro Manila accent well-handled. Visayan-accented Filipino may have lower accuracy. Cebuano not tested.",
+    "tts_compromise": "No native Filipino TTS available in ElevenLabs. Using English voice (Rachel) which sounds natural for Taglish but may sound unnatural for pure Tagalog passages. For production: Azure's fil-PH-BlessicaNeural or Google Cloud's fil-PH voices would be more authentic."
+  }
+}

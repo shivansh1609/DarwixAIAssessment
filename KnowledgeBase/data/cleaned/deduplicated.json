@@ -1,0 +1,563 @@
+[
+  {
+    "source_url": "https://talentbridge.example.com/about",
+    "source_type": "website",
+    "page_title": "About TalentBridge — AI-Powered Recruitment Solutions",
+    "extraction_date": "2026-08-05",
+    "cleaned_content": "Skip to content | Home | About | Careers | Contact | Login\n\nAbout TalentBridge\n\nTalentBridge is a leading AI-powered recruitment platform that connects top talent with innovative companies across technology, finance, healthcare, and engineering sectors. Founded in 2019, we have placed over 15,000 candidates globally.\n\nOur Mission\nTo democratize hiring by making world-class recruitment accessible to companies of all sizes through intelligent automation and human expertise.\n\nOur Process\n1. Initial Screening — Automated qualification via voice and chat\n2. Skills Assessment — Technical evaluation matched to role requirements\n3. Cultural Fit — Behavioral and values alignment check\n4. Client Presentation — Shortlisted candidates presented to hiring managers\n5. Offer Management — Compensation negotiation and onboarding support\n\nOffice Locations\nBangalore, India (HQ) | Manila, Philippines | Jakarta, Indonesia | Singapore\n\nContact: hr@talentbridge.example.com | +91-80-1234-5678\n\n© 2026 TalentBridge. All rights reserved. | Privacy Policy | Terms of Service\nFollow us: Twitter | LinkedIn | Facebook",
+    "quality": {
+      "quality_score": 1.0,
+      "issues": [],
+      "word_count": 154,
+      "has_tables": true,
+      "has_lists": false
+    },
+    "pii_flag": true,
+    "pii_types": [
+      "email"
+    ],
+    "pii_count": 1,
+    "pii_max_severity": "high",
+    "pii_findings": [
+      {
+        "type": "email",
+        "value": "hr@talentbridge.example.com",
+        "position": 937,
+        "description": "Email address",
+        "severity": "high"
+      }
+    ],
+    "redacted_content": "Skip to content | Home | About | Careers | Contact | Login\n\nAbout TalentBridge\n\nTalentBridge is a leading AI-powered recruitment platform that connects top talent with innovative companies across technology, finance, healthcare, and engineering sectors. Founded in 2019, we have placed over 15,000 candidates globally.\n\nOur Mission\nTo democratize hiring by making world-class recruitment accessible to companies of all sizes through intelligent automation and human expertise.\n\nOur Process\n1. Initial Screening — Automated qualification via voice and chat\n2. Skills Assessment — Technical evaluation matched to role requirements\n3. Cultural Fit — Behavioral and values alignment check\n4. Client Presentation — Shortlisted candidates presented to hiring managers\n5. Offer Management — Compensation negotiation and onboarding support\n\nOffice Locations\nBangalore, India (HQ) | Manila, Philippines | Jakarta, Indonesia | Singapore\n\nContact: [REDACTED_EMAIL] | +91-80-1234-5678\n\n© 2026 TalentBridge. All rights reserved. | Privacy Policy | Terms of Service\nFollow us: Twitter | LinkedIn | Facebook"
+  },
+  {
+    "source_url": "https://talentbridge.example.com/jobs/senior-software-engineer",
+    "source_type": "website",
+    "page_title": "Senior Software Engineer — TalentBridge Careers",
+    "extraction_date": "2026-08-05",
+    "cleaned_content": "Navigation: Home > Careers > Engineering > Senior Software Engineer\n\nSenior Software Engineer\nLocation: Bangalore, India (Hybrid — 3 days in office)\nDepartment: Engineering\nExperience: 5-10 years\nSalary Range: ₹25,00,000 — ₹45,00,000 per annum\nEmployment Type: Full-time\n\nJob Description\nWe are looking for a Senior Software Engineer to join our platform team. You will design and build scalable microservices, mentor junior engineers, and contribute to architecture decisions.\n\nKey Responsibilities\n- Design and implement RESTful APIs and microservices using Python/Go\n- Lead code reviews and establish engineering best practices\n- Collaborate with product managers to translate requirements into technical solutions\n- Optimize system performance and reliability (target 99.9% uptime)\n- Mentor junior developers and conduct technical interviews\n\nRequired Qualifications\n- B.Tech/B.E. in Computer Science or related field (M.Tech preferred)\n- 5+ years of experience in backend development\n- Strong proficiency in Python, Go, or Java\n- Experience with cloud platforms (AWS/GCP/Azure)\n- Familiarity with containerization (Docker, Kubernetes)\n- Experience with relational and NoSQL databases\n- Strong understanding of system design and distributed systems\n\nPreferred Qualifications\n- Experience with AI/ML systems or data pipelines\n- Open-source contributions\n- Experience in high-traffic systems (10K+ RPS)\n\nBenefits\n- Health insurance for employee and family (spouse + 2 children)\n- 24 days paid leave + 12 public holidays\n- Annual learning budget of ₹1,00,000\n- Stock options (ESOP) after 1 year\n- Flexible work hours (core hours 10 AM — 4 Product Manager)\n- Gym membership and wellness programs\n\nApplication Deadline: 2026-08-31\nApply Now | Share this job\n\nRelated Jobs: Backend Engineer | DevOps Engineer | Staff Engineer\n© 2026 TalentBridge",
+    "quality": {
+      "quality_score": 1.0,
+      "issues": [],
+      "word_count": 266,
+      "has_tables": false,
+      "has_lists": true
+    },
+    "pii_flag": false,
+    "pii_types": [],
+    "pii_count": 0,
+    "pii_max_severity": "none",
+    "pii_findings": [],
+    "redacted_content": "Navigation: Home > Careers > Engineering > Senior Software Engineer\n\nSenior Software Engineer\nLocation: Bangalore, India (Hybrid — 3 days in office)\nDepartment: Engineering\nExperience: 5-10 years\nSalary Range: ₹25,00,000 — ₹45,00,000 per annum\nEmployment Type: Full-time\n\nJob Description\nWe are looking for a Senior Software Engineer to join our platform team. You will design and build scalable microservices, mentor junior engineers, and contribute to architecture decisions.\n\nKey Responsibilities\n- Design and implement RESTful APIs and microservices using Python/Go\n- Lead code reviews and establish engineering best practices\n- Collaborate with product managers to translate requirements into technical solutions\n- Optimize system performance and reliability (target 99.9% uptime)\n- Mentor junior developers and conduct technical interviews\n\nRequired Qualifications\n- B.Tech/B.E. in Computer Science or related field (M.Tech preferred)\n- 5+ years of experience in backend development\n- Strong proficiency in Python, Go, or Java\n- Experience with cloud platforms (AWS/GCP/Azure)\n- Familiarity with containerization (Docker, Kubernetes)\n- Experience with relational and NoSQL databases\n- Strong understanding of system design and distributed systems\n\nPreferred Qualifications\n- Experience with AI/ML systems or data pipelines\n- Open-source contributions\n- Experience in high-traffic systems (10K+ RPS)\n\nBenefits\n- Health insurance for employee and family (spouse + 2 children)\n- 24 days paid leave + 12 public holidays\n- Annual learning budget of ₹1,00,000\n- Stock options (ESOP) after 1 year\n- Flexible work hours (core hours 10 AM — 4 Product Manager)\n- Gym membership and wellness programs\n\nApplication Deadline: 2026-08-31\nApply Now | Share this job\n\nRelated Jobs: Backend Engineer | DevOps Engineer | Staff Engineer\n© 2026 TalentBridge"
+  },
+  {
+    "source_url": "https://talentbridge.example.com/jobs/data-analyst",
+    "source_type": "website",
+    "page_title": "Data Analyst — TalentBridge Careers",
+    "extraction_date": "2026-08-05",
+    "cleaned_content": "Navigation: Home > Careers > Data & Analytics > Data Analyst\n\nData Analyst\nLocation: Bangalore, India (Remote-first)\nDepartment: Data & Analytics\nExperience: 2-5 years\nSalary Range: ₹12,00,000 — ₹22,00,000 per annum\nEmployment Type: Full-time\n\nJob Description\nJoin our data team to drive insights that power recruitment decisions. You will analyze hiring trends, build dashboards, and support product teams with data-driven recommendations.\n\nKey Responsibilities\n- Analyze recruitment funnel metrics and candidate pipeline data\n- Build interactive dashboards using Tableau/Power BI/Metabase\n- Write complex SQL queries for data extraction and reporting\n- Collaborate with product and engineering teams on A/B test analysis\n- Develop and maintain ETL pipelines for data warehousing\n\nRequired Qualifications\n- Bachelor's degree in Statistics, Mathematics, Computer Science, or related field\n- 2+ years of experience in data analysis or business intelligence\n- Advanced SQL skills (window functions, CTEs, optimization)\n- Proficiency in Python (pandas, numpy, matplotlib) or R\n- Experience with at least one BI tool (Tableau, Power BI, Looker)\n- Strong communication skills to present findings to non-technical stakeholders\n\nPreferred Qualifications\n- Experience with dbt or similar data transformation tools\n- Knowledge of statistical modeling or machine learning basics\n- Experience in HR tech or recruitment analytics\n\nBenefits\n- Health insurance for employee and family\n- 24 days paid leave + 12 public holidays\n- Remote-first with quarterly team meetups\n- Annual learning budget of ₹75,000\n- Stock options after 1 year\n\nApplication Deadline: 2026-09-15\n\nSimilar Roles: Business Analyst | Data Engineer | Analytics Manager\n© 2026 TalentBridge",
+    "quality": {
+      "quality_score": 1.0,
+      "issues": [],
+      "word_count": 251,
+      "has_tables": false,
+      "has_lists": true
+    },
+    "pii_flag": false,
+    "pii_types": [],
+    "pii_count": 0,
+    "pii_max_severity": "none",
+    "pii_findings": [],
+    "redacted_content": "Navigation: Home > Careers > Data & Analytics > Data Analyst\n\nData Analyst\nLocation: Bangalore, India (Remote-first)\nDepartment: Data & Analytics\nExperience: 2-5 years\nSalary Range: ₹12,00,000 — ₹22,00,000 per annum\nEmployment Type: Full-time\n\nJob Description\nJoin our data team to drive insights that power recruitment decisions. You will analyze hiring trends, build dashboards, and support product teams with data-driven recommendations.\n\nKey Responsibilities\n- Analyze recruitment funnel metrics and candidate pipeline data\n- Build interactive dashboards using Tableau/Power BI/Metabase\n- Write complex SQL queries for data extraction and reporting\n- Collaborate with product and engineering teams on A/B test analysis\n- Develop and maintain ETL pipelines for data warehousing\n\nRequired Qualifications\n- Bachelor's degree in Statistics, Mathematics, Computer Science, or related field\n- 2+ years of experience in data analysis or business intelligence\n- Advanced SQL skills (window functions, CTEs, optimization)\n- Proficiency in Python (pandas, numpy, matplotlib) or R\n- Experience with at least one BI tool (Tableau, Power BI, Looker)\n- Strong communication skills to present findings to non-technical stakeholders\n\nPreferred Qualifications\n- Experience with dbt or similar data transformation tools\n- Knowledge of statistical modeling or machine learning basics\n- Experience in HR tech or recruitment analytics\n\nBenefits\n- Health insurance for employee and family\n- 24 days paid leave + 12 public holidays\n- Remote-first with quarterly team meetups\n- Annual learning budget of ₹75,000\n- Stock options after 1 year\n\nApplication Deadline: 2026-09-15\n\nSimilar Roles: Business Analyst | Data Engineer | Analytics Manager\n© 2026 TalentBridge"
+  },
+  {
+    "source_url": "https://talentbridge.example.com/jobs/product-manager",
+    "source_type": "website",
+    "page_title": "Product Manager — TalentBridge Careers",
+    "extraction_date": "2026-08-05",
+    "cleaned_content": "Product Manager\nLocation: Bangalore or Singapore (Hybrid)\nDepartment: Product\nExperience: 4-8 years\nSalary Range: ₹28,00,000 — ₹50,00,000 per annum\nEmployment Type: Full-time\n\nJob Description\nWe need a Product Manager to own the candidate experience journey. You will define product strategy, prioritize features, and work closely with engineering and design teams.\n\nKey Responsibilities\n- Define and execute product roadmap for candidate-facing features\n- Conduct user research and competitive analysis\n- Write detailed PRDs and user stories\n- Collaborate with engineering on sprint planning and delivery\n- Track and improve key product metrics (conversion, NPS, time-to-hire)\n- Present product updates to leadership and stakeholders\n\nRequired Qualifications\n- 4+ years of product management experience in B2B SaaS or marketplace products\n- Strong analytical skills with experience in product analytics tools\n- Excellent written and verbal communication\n- Experience with agile methodologies (Scrum/Kanban)\n- Technical background or ability to work closely with engineering teams\n- M.B.A. or equivalent experience preferred\n\nPreferred\n- Experience in HR tech, recruitment, or talent marketplace\n- Experience launching 0-to-1 products\n- Data-driven decision making with SQL proficiency\n\nBenefits\nSame as listed on the Benefits page. Additionally, Product Manager role includes:\n- Conference budget (2 conferences per year)\n- Direct report opportunity after 6 months\n\nContact the recruiter: priya.sharma@talentbridge.example.com | Phone: +91-98765-43210\nApply before: 2026-09-30",
+    "quality": {
+      "quality_score": 1.0,
+      "issues": [],
+      "word_count": 215,
+      "has_tables": false,
+      "has_lists": true
+    },
+    "pii_flag": true,
+    "pii_types": [
+      "phone_generic",
+      "phone_india",
+      "email"
+    ],
+    "pii_count": 3,
+    "pii_max_severity": "high",
+    "pii_findings": [
+      {
+        "type": "email",
+        "value": "priya.sharma@talentbridge.example.com",
+        "position": 1490,
+        "description": "Email address",
+        "severity": "high"
+      },
+      {
+        "type": "phone_india",
+        "value": "+91-98765-43210",
+        "position": 1537,
+        "description": "Indian phone number",
+        "severity": "high"
+      },
+      {
+        "type": "phone_generic",
+        "value": "+91-98765-43210\n",
+        "position": 1537,
+        "description": "International phone number",
+        "severity": "high"
+      }
+    ],
+    "redacted_content": "Product Manager\nLocation: Bangalore or Singapore (Hybrid)\nDepartment: Product\nExperience: 4-8 years\nSalary Range: ₹28,00,000 — ₹50,00,000 per annum\nEmployment Type: Full-time\n\nJob Description\nWe need a Product Manager to own the candidate experience journey. You will define product strategy, prioritize features, and work closely with engineering and design teams.\n\nKey Responsibilities\n- Define and execute product roadmap for candidate-facing features\n- Conduct user research and competitive analysis\n- Write detailed PRDs and user stories\n- Collaborate with engineering on sprint planning and delivery\n- Track and improve key product metrics (conversion, NPS, time-to-hire)\n- Present product updates to leadership and stakeholders\n\nRequired Qualifications\n- 4+ years of product management experience in B2B SaaS or marketplace products\n- Strong analytical skills with experience in product analytics tools\n- Excellent written and verbal communication\n- Experience with agile methodologies (Scrum/Kanban)\n- Technical background or ability to work closely with engineering teams\n- M.B.A. or equivalent experience preferred\n\nPreferred\n- Experience in HR tech, recruitment, or talent marketplace\n- Experience launching 0-to-1 products\n- Data-driven decision making with SQL proficiency\n\nBenefits\nSame as listed on the Benefits page. Additionally, Product Manager role includes:\n- Conference budget (2 conferences per year)\n- Direct report opportunity after 6 months\n\nContact the recruiter: [REDACTED_EMAIL] | Phone: [REDACTED_PHONE_GENERIC]INDIA]\nApply before: 2026-09-30"
+  },
+  {
+    "source_url": "https://talentbridge.example.com/screening-process",
+    "source_type": "website",
+    "page_title": "Our Screening Process — TalentBridge",
+    "extraction_date": "2026-08-05",
+    "cleaned_content": "Candidate Screening Process\n\nAt TalentBridge, we believe in a thorough yet respectful screening process. Here is what candidates can expect:\n\nStep 1: Initial Voice/Chat Screening (15-20 minutes)\n- Verify basic qualifications and experience\n- Understand career goals and role fit\n- Confirm availability, notice period, and salary expectations\n- Answer candidate questions about the role and company\n- Result: Qualified / Not Qualified / Need More Information\n\nStep 2: Technical Assessment (45-90 minutes)\n- Role-specific assessment tailored to the position\n- For engineering roles: coding challenge + system design\n- For data roles: SQL + analytics case study\n- For product roles: product sense + case study\n- For design roles: portfolio review + design challenge\n- Assessment is conducted via our online platform or live with an interviewer\n\nStep 3: Cultural Fit Interview (30 minutes)\n- Behavioral questions aligned with our core values\n- Collaboration and communication assessment\n- Growth mindset and adaptability evaluation\n\nStep 4: Hiring Manager Interview (45 minutes)\n- Deep dive into relevant experience\n- Role-specific scenarios and problem-solving\n- Team dynamics and fit assessment\n\nStep 5: Offer and Onboarding\n- Competitive offer based on market data and experience\n- Negotiation support if needed\n- Onboarding starts 1 week before joining date\n\nTimeline: The entire process typically takes 2-3 weeks from initial screening to offer.\n\nFeedback Policy\nWe provide feedback to all candidates within 5 business days of each stage. If you haven't heard back, please contact your recruiter.\n\nAccommodations\nWe provide reasonable accommodations for candidates with disabilities. Please inform your recruiter in advance.\n\nEqual Opportunity\nTalentBridge is an equal opportunity employer. We do not discriminate based on race, gender, age, religion, disability, sexual orientation, or any other protected characteristic.",
+    "quality": {
+      "quality_score": 1.0,
+      "issues": [],
+      "word_count": 284,
+      "has_tables": false,
+      "has_lists": true
+    },
+    "pii_flag": false,
+    "pii_types": [],
+    "pii_count": 0,
+    "pii_max_severity": "none",
+    "pii_findings": [],
+    "redacted_content": "Candidate Screening Process\n\nAt TalentBridge, we believe in a thorough yet respectful screening process. Here is what candidates can expect:\n\nStep 1: Initial Voice/Chat Screening (15-20 minutes)\n- Verify basic qualifications and experience\n- Understand career goals and role fit\n- Confirm availability, notice period, and salary expectations\n- Answer candidate questions about the role and company\n- Result: Qualified / Not Qualified / Need More Information\n\nStep 2: Technical Assessment (45-90 minutes)\n- Role-specific assessment tailored to the position\n- For engineering roles: coding challenge + system design\n- For data roles: SQL + analytics case study\n- For product roles: product sense + case study\n- For design roles: portfolio review + design challenge\n- Assessment is conducted via our online platform or live with an interviewer\n\nStep 3: Cultural Fit Interview (30 minutes)\n- Behavioral questions aligned with our core values\n- Collaboration and communication assessment\n- Growth mindset and adaptability evaluation\n\nStep 4: Hiring Manager Interview (45 minutes)\n- Deep dive into relevant experience\n- Role-specific scenarios and problem-solving\n- Team dynamics and fit assessment\n\nStep 5: Offer and Onboarding\n- Competitive offer based on market data and experience\n- Negotiation support if needed\n- Onboarding starts 1 week before joining date\n\nTimeline: The entire process typically takes 2-3 weeks from initial screening to offer.\n\nFeedback Policy\nWe provide feedback to all candidates within 5 business days of each stage. If you haven't heard back, please contact your recruiter.\n\nAccommodations\nWe provide reasonable accommodations for candidates with disabilities. Please inform your recruiter in advance.\n\nEqual Opportunity\nTalentBridge is an equal opportunity employer. We do not discriminate based on race, gender, age, religion, disability, sexual orientation, or any other protected characteristic."
+  },
+  {
+    "source_url": "https://talentbridge.example.com/faq",
+    "source_type": "website",
+    "page_title": "Frequently Asked Questions — TalentBridge",
+    "extraction_date": "2026-08-05",
+    "cleaned_content": "Frequently Asked Questions\n\nGeneral\n\nQ: What is TalentBridge?\nA: TalentBridge is an AI-powered recruitment platform that helps match qualified candidates with the right job opportunities across technology, finance, healthcare, and engineering sectors.\n\nQ: Is TalentBridge a staffing agency?\nA: No. TalentBridge is a technology-driven recruitment platform. We are not a staffing agency or temp service. All positions we recruit for are permanent, full-time roles with our client companies or our own organization.\n\nQ: Do I need to pay anything to apply?\nA: Absolutely not. TalentBridge never charges candidates any fee. Our services are completely free for job seekers. If anyone asks you to pay for a job application through TalentBridge, it is a scam — please report it immediately.\n\nQ: Where are you hiring?\nA: We primarily hire in India (Bangalore, Mumbai, Delhi, Hyderabad), Philippines (Manila, Cebu), Indonesia (Jakarta, Surabaya), and Singapore. Some roles are fully remote.\n\nApplication Process\n\nQ: How do I apply?\nA: You can apply through our website, speak with our AI screening assistant, or send your resume to careers@talentbridge.example.com.\n\nQ: What happens after I apply?\nA: Within 3-5 business days, you will receive either a screening call/chat invitation or feedback on your application status.\n\nQ: Can I apply for multiple positions?\nA: Yes, you can apply for up to 3 positions simultaneously. Our system tracks applications to avoid duplicates.\n\nQ: How long does the hiring process take?\nA: Typically 2-3 weeks from initial screening to offer. Some specialized roles may take longer.\n\nQ: What if I need to reschedule my interview?\nA: Please contact your recruiter at least 24 hours before the scheduled time. We are flexible and will accommodate reasonable requests.\n\nCompensation & Benefits\n\nQ: What is the salary range for positions?\nA: Salary ranges vary by role, experience, and location. Ranges are listed on each job posting. We are transparent about compensation.\n\nQ: Do you offer remote work?\nA: It depends on the role. Some positions are remote-first, some are hybrid (typically 3 days in office), and some require full-time in-office presence. Check the specific job listing.\n\nQ: What benefits do you offer?\nA: Standard benefits include health insurance (employee + family), 24 days paid leave, 12 public holidays, annual learning budget, stock options (ESOPs), flexible work hours, and wellness programs.\n\nQ: Do you sponsor work visas?\nA: Currently, we sponsor work visas for select positions in Singapore. For India, Philippines, and Indonesia, candidates must have existing work authorization.\n\nTechnical Assessment\n\nQ: What programming languages are accepted in coding challenges?\nA: For most engineering roles, you can use Python, Java, Go, JavaScript/TypeScript, C++, or Rust. The specific languages accepted are mentioned in the assessment invitation.\n\nQ: Can I use an IDE during the coding challenge?\nA: Yes, our online assessment platform provides a full IDE environment. You can also use your local IDE for live coding interviews.\n\nQ: What if I face technical issues during the assessment?\nA: Contact our support team immediately at support@talentbridge.example.com. We will reschedule if needed.\n\nPrivacy\n\nQ: How is my data handled?\nA: Your data is stored securely and used only for recruitment purposes. We comply with GDPR, India's DPDP Act, and local data protection laws. You can request data deletion at any time.\n\nQ: Who can see my application?\nA: Only the relevant recruitment team and hiring manager can access your application details.",
+    "quality": {
+      "quality_score": 1.0,
+      "issues": [
+        "Potential contradiction: mentions both remote and in-office"
+      ],
+      "word_count": 555,
+      "has_tables": false,
+      "has_lists": false
+    },
+    "pii_flag": true,
+    "pii_types": [
+      "email"
+    ],
+    "pii_count": 2,
+    "pii_max_severity": "high",
+    "pii_findings": [
+      {
+        "type": "email",
+        "value": "careers@talentbridge.example.com",
+        "position": 1123,
+        "description": "Email address",
+        "severity": "high"
+      },
+      {
+        "type": "email",
+        "value": "support@talentbridge.example.com",
+        "position": 3175,
+        "description": "Email address",
+        "severity": "high"
+      }
+    ],
+    "redacted_content": "Frequently Asked Questions\n\nGeneral\n\nQ: What is TalentBridge?\nA: TalentBridge is an AI-powered recruitment platform that helps match qualified candidates with the right job opportunities across technology, finance, healthcare, and engineering sectors.\n\nQ: Is TalentBridge a staffing agency?\nA: No. TalentBridge is a technology-driven recruitment platform. We are not a staffing agency or temp service. All positions we recruit for are permanent, full-time roles with our client companies or our own organization.\n\nQ: Do I need to pay anything to apply?\nA: Absolutely not. TalentBridge never charges candidates any fee. Our services are completely free for job seekers. If anyone asks you to pay for a job application through TalentBridge, it is a scam — please report it immediately.\n\nQ: Where are you hiring?\nA: We primarily hire in India (Bangalore, Mumbai, Delhi, Hyderabad), Philippines (Manila, Cebu), Indonesia (Jakarta, Surabaya), and Singapore. Some roles are fully remote.\n\nApplication Process\n\nQ: How do I apply?\nA: You can apply through our website, speak with our AI screening assistant, or send your resume to [REDACTED_EMAIL].\n\nQ: What happens after I apply?\nA: Within 3-5 business days, you will receive either a screening call/chat invitation or feedback on your application status.\n\nQ: Can I apply for multiple positions?\nA: Yes, you can apply for up to 3 positions simultaneously. Our system tracks applications to avoid duplicates.\n\nQ: How long does the hiring process take?\nA: Typically 2-3 weeks from initial screening to offer. Some specialized roles may take longer.\n\nQ: What if I need to reschedule my interview?\nA: Please contact your recruiter at least 24 hours before the scheduled time. We are flexible and will accommodate reasonable requests.\n\nCompensation & Benefits\n\nQ: What is the salary range for positions?\nA: Salary ranges vary by role, experience, and location. Ranges are listed on each job posting. We are transparent about compensation.\n\nQ: Do you offer remote work?\nA: It depends on the role. Some positions are remote-first, some are hybrid (typically 3 days in office), and some require full-time in-office presence. Check the specific job listing.\n\nQ: What benefits do you offer?\nA: Standard benefits include health insurance (employee + family), 24 days paid leave, 12 public holidays, annual learning budget, stock options (ESOPs), flexible work hours, and wellness programs.\n\nQ: Do you sponsor work visas?\nA: Currently, we sponsor work visas for select positions in Singapore. For India, Philippines, and Indonesia, candidates must have existing work authorization.\n\nTechnical Assessment\n\nQ: What programming languages are accepted in coding challenges?\nA: For most engineering roles, you can use Python, Java, Go, JavaScript/TypeScript, C++, or Rust. The specific languages accepted are mentioned in the assessment invitation.\n\nQ: Can I use an IDE during the coding challenge?\nA: Yes, our online assessment platform provides a full IDE environment. You can also use your local IDE for live coding interviews.\n\nQ: What if I face technical issues during the assessment?\nA: Contact our support team immediately at [REDACTED_EMAIL]. We will reschedule if needed.\n\nPrivacy\n\nQ: How is my data handled?\nA: Your data is stored securely and used only for recruitment purposes. We comply with GDPR, India's DPDP Act, and local data protection laws. You can request data deletion at any time.\n\nQ: Who can see my application?\nA: Only the relevant recruitment team and hiring manager can access your application details."
+  },
+  {
+    "source_url": "https://talentbridge.example.com/qualification-rules",
+    "source_type": "website",
+    "page_title": "Candidate Qualification Criteria — Internal",
+    "extraction_date": "2026-08-05",
+    "cleaned_content": "Candidate Qualification Rules and Scoring\n\nThis page outlines the qualification framework used during initial candidate screening.\n\nQualification Score: Hot / Warm / Cold\n\nHot Lead (Score: 80-100)\n- Meets all required qualifications for the applied role\n- Experience within the specified range\n- Salary expectations within the posted range (±15%)\n- Notice period ≤ 30 days OR immediately available\n- Willing to work in the specified location/mode\n- Passed initial technical screen questions\n\nWarm Lead (Score: 50-79)\n- Meets most required qualifications (≥70%)\n- Experience slightly outside range (±1 year)\n- Salary expectations within ±25% of range\n- Notice period 31-60 days\n- Location flexibility needed but open to discussion\n- Partial technical screen pass\n\nCold Lead (Score: 0-49)\n- Missing 2+ required qualifications\n- Experience significantly outside range (>2 years off)\n- Salary expectations >25% above range\n- Notice period >60 days with no flexibility\n- Unwilling to relocate/commute when required\n- Failed initial technical questions\n\nDisqualification Criteria (Automatic Reject)\n- Currently employed by a direct competitor (non-compete active)\n- Failed background verification in previous application\n- Applied more than 3 times in 6 months (cooling period)\n- Under 18 years of age\n- Requesting compensation >2x the posted range maximum\n\nNotice Period Guidelines\n- Immediate to 15 days: Highly preferred\n- 16-30 days: Acceptable\n- 31-60 days: Acceptable with strong profile\n- 61-90 days: Requires hiring manager approval\n- 90+ days: Generally not processed unless exceptional candidate\n\nSalary Negotiation Bands\n- Within range: Proceed normally\n- 1-15% above range: Proceed, flag for recruiter review\n- 16-25% above range: Proceed only if Hot lead\n- >25% above range: Inform candidate of range, ask if willing to reconsider\n\nReferral Bonus\nEmployee referrals receive priority screening. Referral bonus: ₹50,000 for standard roles, ₹1,00,000 for senior/leadership roles. Paid after referred candidate completes 90 days.",
+    "quality": {
+      "quality_score": 1.0,
+      "issues": [],
+      "word_count": 302,
+      "has_tables": false,
+      "has_lists": true
+    },
+    "pii_flag": false,
+    "pii_types": [],
+    "pii_count": 0,
+    "pii_max_severity": "none",
+    "pii_findings": [],
+    "redacted_content": "Candidate Qualification Rules and Scoring\n\nThis page outlines the qualification framework used during initial candidate screening.\n\nQualification Score: Hot / Warm / Cold\n\nHot Lead (Score: 80-100)\n- Meets all required qualifications for the applied role\n- Experience within the specified range\n- Salary expectations within the posted range (±15%)\n- Notice period ≤ 30 days OR immediately available\n- Willing to work in the specified location/mode\n- Passed initial technical screen questions\n\nWarm Lead (Score: 50-79)\n- Meets most required qualifications (≥70%)\n- Experience slightly outside range (±1 year)\n- Salary expectations within ±25% of range\n- Notice period 31-60 days\n- Location flexibility needed but open to discussion\n- Partial technical screen pass\n\nCold Lead (Score: 0-49)\n- Missing 2+ required qualifications\n- Experience significantly outside range (>2 years off)\n- Salary expectations >25% above range\n- Notice period >60 days with no flexibility\n- Unwilling to relocate/commute when required\n- Failed initial technical questions\n\nDisqualification Criteria (Automatic Reject)\n- Currently employed by a direct competitor (non-compete active)\n- Failed background verification in previous application\n- Applied more than 3 times in 6 months (cooling period)\n- Under 18 years of age\n- Requesting compensation >2x the posted range maximum\n\nNotice Period Guidelines\n- Immediate to 15 days: Highly preferred\n- 16-30 days: Acceptable\n- 31-60 days: Acceptable with strong profile\n- 61-90 days: Requires hiring manager approval\n- 90+ days: Generally not processed unless exceptional candidate\n\nSalary Negotiation Bands\n- Within range: Proceed normally\n- 1-15% above range: Proceed, flag for recruiter review\n- 16-25% above range: Proceed only if Hot lead\n- >25% above range: Inform candidate of range, ask if willing to reconsider\n\nReferral Bonus\nEmployee referrals receive priority screening. Referral bonus: ₹50,000 for standard roles, ₹1,00,000 for senior/leadership roles. Paid after referred candidate completes 90 days."
+  },
+  {
+    "source_url": "https://talentbridge.example.com/benefits-details",
+    "source_type": "website",
+    "page_title": "Employee Benefits — TalentBridge",
+    "extraction_date": "2026-08-05",
+    "cleaned_content": "Cookie Notice: We use cookies to improve your experience. Accept | Decline\n\nEmployee Benefits Package\n\nHealth & Wellness\n- Comprehensive health insurance: ₹10,00,000 coverage for employee, spouse, and up to 2 dependent children\n- Dental and vision coverage included\n- Mental health support: 12 free counseling sessions per year via partner provider\n- Annual health checkup fully covered\n- Gym membership reimbursement up to ₹2,000/month\n- Ergonomic home office setup allowance: ₹25,000 (one-time for remote employees)\n\nLeave Policy\n- 24 days paid time off per year (earned leave)\n- 12 public holidays\n- 10 days sick leave (no doctor's certificate needed for ≤3 consecutive days)\n- 6 months maternity leave (fully paid)\n- 2 weeks paternity leave (fully paid)\n- 5 days bereavement leave\n- Unpaid sabbatical option after 3 years of service (up to 3 months)\n\nFinancial Benefits\n- Competitive salary with annual revision (typically 10-20% for strong performers)\n- Employee Stock Ownership Plan (ESOP): Vesting over 4 years with 1-year cliff\n- Performance bonus: 10-25% of annual salary based on individual and company performance\n- Relocation assistance: Up to ₹2,00,000 for inter-city moves\n- Internet reimbursement: ₹1,500/month for remote employees\n\nLearning & Growth\n- Annual learning budget: ₹75,000 — ₹1,00,000 depending on level\n- Access to online platforms: Coursera, Udemy Business, O'Reilly\n- Internal mentorship program\n- Conference attendance budget: 1-2 conferences per year\n- Internal tech talks and knowledge sharing sessions weekly\n\nWork Flexibility\n- Core hours: 10 AM — 4 Product Manager IST (flexible outside core hours)\n- Hybrid model: 3 days in office, 2 days Work From Home (for hybrid roles)\n- Remote-first for eligible roles\n- Workcation policy: Work from any Indian city for up to 30 days per year\n\nFooter: TalentBridge | About | Careers | Privacy | Terms\nSocial: LinkedIn | Twitter | Instagram",
+    "quality": {
+      "quality_score": 1.0,
+      "issues": [],
+      "word_count": 302,
+      "has_tables": true,
+      "has_lists": true
+    },
+    "pii_flag": false,
+    "pii_types": [],
+    "pii_count": 0,
+    "pii_max_severity": "none",
+    "pii_findings": [],
+    "redacted_content": "Cookie Notice: We use cookies to improve your experience. Accept | Decline\n\nEmployee Benefits Package\n\nHealth & Wellness\n- Comprehensive health insurance: ₹10,00,000 coverage for employee, spouse, and up to 2 dependent children\n- Dental and vision coverage included\n- Mental health support: 12 free counseling sessions per year via partner provider\n- Annual health checkup fully covered\n- Gym membership reimbursement up to ₹2,000/month\n- Ergonomic home office setup allowance: ₹25,000 (one-time for remote employees)\n\nLeave Policy\n- 24 days paid time off per year (earned leave)\n- 12 public holidays\n- 10 days sick leave (no doctor's certificate needed for ≤3 consecutive days)\n- 6 months maternity leave (fully paid)\n- 2 weeks paternity leave (fully paid)\n- 5 days bereavement leave\n- Unpaid sabbatical option after 3 years of service (up to 3 months)\n\nFinancial Benefits\n- Competitive salary with annual revision (typically 10-20% for strong performers)\n- Employee Stock Ownership Plan (ESOP): Vesting over 4 years with 1-year cliff\n- Performance bonus: 10-25% of annual salary based on individual and company performance\n- Relocation assistance: Up to ₹2,00,000 for inter-city moves\n- Internet reimbursement: ₹1,500/month for remote employees\n\nLearning & Growth\n- Annual learning budget: ₹75,000 — ₹1,00,000 depending on level\n- Access to online platforms: Coursera, Udemy Business, O'Reilly\n- Internal mentorship program\n- Conference attendance budget: 1-2 conferences per year\n- Internal tech talks and knowledge sharing sessions weekly\n\nWork Flexibility\n- Core hours: 10 AM — 4 Product Manager IST (flexible outside core hours)\n- Hybrid model: 3 days in office, 2 days Work From Home (for hybrid roles)\n- Remote-first for eligible roles\n- Workcation policy: Work from any Indian city for up to 30 days per year\n\nFooter: TalentBridge | About | Careers | Privacy | Terms\nSocial: LinkedIn | Twitter | Instagram"
+  },
+  {
+    "source_url": "https://talentbridge.example.com/culture",
+    "source_type": "website",
+    "page_title": "Our Culture and Values — TalentBridge",
+    "extraction_date": "2026-08-05",
+    "cleaned_content": "Our Culture\n\nCore Values\n1. Candidate First — Every decision considers the candidate experience\n2. Radical Transparency — We share information openly with teams and candidates\n3. Continuous Learning — We invest in growth and never stop improving\n4. Data-Driven — Decisions backed by evidence, not assumptions\n5. Inclusive by Design — Diversity is not an add-on, it's our foundation\n\nDiversity & Inclusion\nTalentBridge is committed to building a diverse workforce. Current demographics:\n- 48% women in technical roles\n- 35% of leadership positions held by underrepresented groups\n- Employee Resource Groups (ERGs) for women, LGBTQ+, persons with disabilities\n- Unconscious bias training mandatory for all hiring managers\n\nEngineering Culture\n- Monorepo with trunk-based development\n- CI/CD with automated testing (>85% code coverage)\n- Tech stack: Python, Go, TypeScript, React, PostgreSQL, Redis, Kubernetes on AWS\n- Bi-weekly sprint cycles with Friday demos\n- 20% time for innovation projects\n\nTeam Events\n- Quarterly team offsites\n- Monthly game nights and social events\n- Annual company retreat (previous locations: Goa, Bali, Chiang Mai)\n- Hackathons twice a year with prizes",
+    "quality": {
+      "quality_score": 1.0,
+      "issues": [],
+      "word_count": 178,
+      "has_tables": false,
+      "has_lists": true
+    },
+    "pii_flag": false,
+    "pii_types": [],
+    "pii_count": 0,
+    "pii_max_severity": "none",
+    "pii_findings": [],
+    "redacted_content": "Our Culture\n\nCore Values\n1. Candidate First — Every decision considers the candidate experience\n2. Radical Transparency — We share information openly with teams and candidates\n3. Continuous Learning — We invest in growth and never stop improving\n4. Data-Driven — Decisions backed by evidence, not assumptions\n5. Inclusive by Design — Diversity is not an add-on, it's our foundation\n\nDiversity & Inclusion\nTalentBridge is committed to building a diverse workforce. Current demographics:\n- 48% women in technical roles\n- 35% of leadership positions held by underrepresented groups\n- Employee Resource Groups (ERGs) for women, LGBTQ+, persons with disabilities\n- Unconscious bias training mandatory for all hiring managers\n\nEngineering Culture\n- Monorepo with trunk-based development\n- CI/CD with automated testing (>85% code coverage)\n- Tech stack: Python, Go, TypeScript, React, PostgreSQL, Redis, Kubernetes on AWS\n- Bi-weekly sprint cycles with Friday demos\n- 20% time for innovation projects\n\nTeam Events\n- Quarterly team offsites\n- Monthly game nights and social events\n- Annual company retreat (previous locations: Goa, Bali, Chiang Mai)\n- Hackathons twice a year with prizes"
+  },
+  {
+    "source_url": "https://talentbridge.example.com/objection-handling-internal",
+    "source_type": "internal_document",
+    "page_title": "Screening Objection Handling Guide — Internal Use Only",
+    "extraction_date": "2026-08-05",
+    "cleaned_content": "CONFIDENTIAL — Internal Recruiter Training Document\n\nCandidate Objection Handling During Screening Calls\n\nObjection 1: \"The salary is too low for my experience.\"\nResponse Strategy: Acknowledge their expectation. Clarify the total compensation including ESOPs, bonuses (10-25%), learning budget, and benefits. If candidate expects >25% above range, note it and explain the range is based on market data. Do NOT promise salary outside the approved range.\n\nObjection 2: \"I don't want to come to office / I want fully remote.\"\nResponse Strategy: Explain the current work model for the specific role (hybrid vs remote-first). If the role is hybrid, highlight that it's only 3 days in office with flexible hours. Mention the workcation policy (30 days/year from any city). If candidate insists on fully remote and the role doesn't support it, flag for recruiter review rather than rejecting.\n\nObjection 3: \"I have a long notice period (60-90 days).\"\nResponse Strategy: Note the notice period. Explain that for strong candidates, we can work with longer notice periods with hiring manager approval. Ask if they can negotiate with current employer for early release. Never reject solely based on notice period unless >90 days.\n\nObjection 4: \"I'm not sure about the company — I haven't heard of TalentBridge.\"\nResponse Strategy: Share key facts — 15,000+ placements, offices in 4 countries, backed by reputable investors. Offer to share the company profile document or website links. Emphasize our Glassdoor rating (4.2/5) and employee testimonials.\n\nObjection 5: \"I'm interviewing with other companies and have competing offers.\"\nResponse Strategy: Acknowledge that it's normal. Ask about their timeline and decision date. Assure them our process is efficient (2-3 weeks). If they have an exploding offer, escalate to hiring manager for fast-tracking.\n\nObjection 6: \"I'm not interested in this role, but maybe something else.\"\nResponse Strategy: Ask about their preferred role type, seniority, and domain. Check available positions. If a match exists, offer to redirect. If not, ask permission to keep their profile for future openings.\n\nObjection 7: \"I have a gap in my employment.\"\nResponse Strategy: DO NOT treat gaps as negative. Ask about the reason (caregiving, health, education, travel) only if the candidate offers. Focus on their current skills and readiness. TalentBridge policy explicitly states that career gaps are not a disqualification factor.\n\nObjection 8: \"Can I talk to someone who works there first?\"\nResponse Strategy: Offer to connect them with a team member or share employee testimonials. This is a reasonable request — escalate to the recruiter to arrange an informal chat.",
+    "quality": {
+      "quality_score": 0.9,
+      "issues": [
+        "Contains confidentiality markers",
+        "Potential contradiction: mentions both remote and in-office"
+      ],
+      "word_count": 414,
+      "has_tables": false,
+      "has_lists": false
+    },
+    "pii_flag": false,
+    "pii_types": [],
+    "pii_count": 0,
+    "pii_max_severity": "none",
+    "pii_findings": [],
+    "redacted_content": "CONFIDENTIAL — Internal Recruiter Training Document\n\nCandidate Objection Handling During Screening Calls\n\nObjection 1: \"The salary is too low for my experience.\"\nResponse Strategy: Acknowledge their expectation. Clarify the total compensation including ESOPs, bonuses (10-25%), learning budget, and benefits. If candidate expects >25% above range, note it and explain the range is based on market data. Do NOT promise salary outside the approved range.\n\nObjection 2: \"I don't want to come to office / I want fully remote.\"\nResponse Strategy: Explain the current work model for the specific role (hybrid vs remote-first). If the role is hybrid, highlight that it's only 3 days in office with flexible hours. Mention the workcation policy (30 days/year from any city). If candidate insists on fully remote and the role doesn't support it, flag for recruiter review rather than rejecting.\n\nObjection 3: \"I have a long notice period (60-90 days).\"\nResponse Strategy: Note the notice period. Explain that for strong candidates, we can work with longer notice periods with hiring manager approval. Ask if they can negotiate with current employer for early release. Never reject solely based on notice period unless >90 days.\n\nObjection 4: \"I'm not sure about the company — I haven't heard of TalentBridge.\"\nResponse Strategy: Share key facts — 15,000+ placements, offices in 4 countries, backed by reputable investors. Offer to share the company profile document or website links. Emphasize our Glassdoor rating (4.2/5) and employee testimonials.\n\nObjection 5: \"I'm interviewing with other companies and have competing offers.\"\nResponse Strategy: Acknowledge that it's normal. Ask about their timeline and decision date. Assure them our process is efficient (2-3 weeks). If they have an exploding offer, escalate to hiring manager for fast-tracking.\n\nObjection 6: \"I'm not interested in this role, but maybe something else.\"\nResponse Strategy: Ask about their preferred role type, seniority, and domain. Check available positions. If a match exists, offer to redirect. If not, ask permission to keep their profile for future openings.\n\nObjection 7: \"I have a gap in my employment.\"\nResponse Strategy: DO NOT treat gaps as negative. Ask about the reason (caregiving, health, education, travel) only if the candidate offers. Focus on their current skills and readiness. TalentBridge policy explicitly states that career gaps are not a disqualification factor.\n\nObjection 8: \"Can I talk to someone who works there first?\"\nResponse Strategy: Offer to connect them with a team member or share employee testimonials. This is a reasonable request — escalate to the recruiter to arrange an informal chat."
+  },
+  {
+    "source_url": "file://internal/screening_checklist.pdf",
+    "source_type": "pdf",
+    "page_title": "Candidate Screening Checklist — PDF Extract",
+    "extraction_date": "2026-08-05",
+    "cleaned_content": "Talentbridge — Candidate Screening Checklist\n\nPre-Call Preparation\n□ Review candidate resume/profile\n□ Note the position they applied for\n□ Check for previous applications in system\n□ Prepare role-specific qualification questions\n\nDuring Call — Information to Collect\n□ Full name (verify against resume)\n□ Current location and willingness to relocate\n□ Total years of experience\n□ Current role and company\n□ Key technical skills relevant to position\n□ Education level and institution\n□ Current salary / expected salary\n□ Notice period at current company\n□ Reason for job change\n□ Availability for next interview round\n□ Any specific questions about the role/company\n\nQualification Decision\n□ Score candidate: Hot (80-100) / Warm (50-79) / Cold (0-49)\n□ Note any disqualification flags\n□ Recommend next step: Proceed to technical / Hold / Reject\n□ Flag any special accommodations needed\n\nPost-Call\n□ Update candidate record in ATS\n□ Send confirmation email with next steps\n□ Schedule technical assessment if proceeding\n□ Share candidate summary with hiring manager\n\nThis document is for INTERNAL USE ONLY.\nPrepared by: HR Department, TalentBridge\nLast Updated: July 2026\nReviewer: Ananya Patel (ananya.patel@talentbridge.example.com)",
+    "quality": {
+      "quality_score": 0.9,
+      "issues": [
+        "Contains checklist formatting (may be internal doc)",
+        "Contains confidentiality markers"
+      ],
+      "word_count": 183,
+      "has_tables": false,
+      "has_lists": true
+    },
+    "pii_flag": true,
+    "pii_types": [
+      "email"
+    ],
+    "pii_count": 1,
+    "pii_max_severity": "high",
+    "pii_findings": [
+      {
+        "type": "email",
+        "value": "ananya.patel@talentbridge.example.com",
+        "position": 1194,
+        "description": "Email address",
+        "severity": "high"
+      }
+    ],
+    "redacted_content": "Talentbridge — Candidate Screening Checklist\n\nPre-Call Preparation\n□ Review candidate resume/profile\n□ Note the position they applied for\n□ Check for previous applications in system\n□ Prepare role-specific qualification questions\n\nDuring Call — Information to Collect\n□ Full name (verify against resume)\n□ Current location and willingness to relocate\n□ Total years of experience\n□ Current role and company\n□ Key technical skills relevant to position\n□ Education level and institution\n□ Current salary / expected salary\n□ Notice period at current company\n□ Reason for job change\n□ Availability for next interview round\n□ Any specific questions about the role/company\n\nQualification Decision\n□ Score candidate: Hot (80-100) / Warm (50-79) / Cold (0-49)\n□ Note any disqualification flags\n□ Recommend next step: Proceed to technical / Hold / Reject\n□ Flag any special accommodations needed\n\nPost-Call\n□ Update candidate record in ATS\n□ Send confirmation email with next steps\n□ Schedule technical assessment if proceeding\n□ Share candidate summary with hiring manager\n\nThis document is for INTERNAL USE ONLY.\nPrepared by: HR Department, TalentBridge\nLast Updated: July 2026\nReviewer: Ananya Patel ([REDACTED_EMAIL])"
+  },
+  {
+    "source_url": "https://talentbridge.example.com/jobs/senior-software-engineer-v2",
+    "source_type": "website",
+    "page_title": "Senior Software Engineer — Updated Listing",
+    "extraction_date": "2026-08-05",
+    "cleaned_content": "Senior Software Engineer\nLocation: Bangalore, India (Hybrid — 3 days in office)\nDepartment: Engineering\nExperience: 5-10 years\nSalary Range: ₹25,00,000 — ₹45,00,000 per annum\nEmployment Type: Full-time, Permanent\n\nJob Description\nWe are looking for a Senior Software Engineer to join our platform team. You will design and build scalable microservices, mentor junior engineers, and contribute to architecture decisions.\n\nResponsibilities\n- Design and implement RESTful APIs and microservices using Python/Go\n- Lead code reviews and establish engineering best practices\n- Collaborate with product managers to translate requirements into technical solutions\n- Optimize system performance and reliability\n- Mentor junior developers\n\nQualifications\n- B.Tech/B.E. in Computer Science or related field\n- 5+ years of backend development experience\n- Strong proficiency in Python, Go, or Java\n- Cloud experience (AWS/GCP/Azure)\n- Docker, Kubernetes experience\n\nBenefits\nSee our Benefits page for full details.\n\nApply: careers@talentbridge.example.com\nNote: This is an updated version of our earlier listing. Previous applicants need not reapply.",
+    "quality": {
+      "quality_score": 1.0,
+      "issues": [],
+      "word_count": 156,
+      "has_tables": false,
+      "has_lists": true
+    },
+    "pii_flag": true,
+    "pii_types": [
+      "email"
+    ],
+    "pii_count": 1,
+    "pii_max_severity": "high",
+    "pii_findings": [
+      {
+        "type": "email",
+        "value": "careers@talentbridge.example.com",
+        "position": 1010,
+        "description": "Email address",
+        "severity": "high"
+      }
+    ],
+    "redacted_content": "Senior Software Engineer\nLocation: Bangalore, India (Hybrid — 3 days in office)\nDepartment: Engineering\nExperience: 5-10 years\nSalary Range: ₹25,00,000 — ₹45,00,000 per annum\nEmployment Type: Full-time, Permanent\n\nJob Description\nWe are looking for a Senior Software Engineer to join our platform team. You will design and build scalable microservices, mentor junior engineers, and contribute to architecture decisions.\n\nResponsibilities\n- Design and implement RESTful APIs and microservices using Python/Go\n- Lead code reviews and establish engineering best practices\n- Collaborate with product managers to translate requirements into technical solutions\n- Optimize system performance and reliability\n- Mentor junior developers\n\nQualifications\n- B.Tech/B.E. in Computer Science or related field\n- 5+ years of backend development experience\n- Strong proficiency in Python, Go, or Java\n- Cloud experience (AWS/GCP/Azure)\n- Docker, Kubernetes experience\n\nBenefits\nSee our Benefits page for full details.\n\nApply: [REDACTED_EMAIL]\nNote: This is an updated version of our earlier listing. Previous applicants need not reapply."
+  },
+  {
+    "source_url": "https://talentbridge.example.com/jobs/customer-support",
+    "source_type": "website",
+    "page_title": "Customer Support Specialist — TalentBridge",
+    "extraction_date": "2026-08-05",
+    "cleaned_content": "Customer Support Specialist\nLocation: Manila, Philippines OR Jakarta, Indonesia\nDepartment: Customer Success\nExperience: 1-3 years\nSalary Range: PHP 35,000 — 55,000/month (PH) OR IDR 8,000,000 — 15,000,000/month (ID)\nEmployment Type: Full-time\n\nJob Description\nProvide excellent support to candidates and hiring managers using our platform. Handle inquiries via chat, email, and phone in English and local languages.\n\nRequirements\n- 1+ years in customer support or BPO\n- Fluent in English and Filipino/Tagalog (PH) or Bahasa Indonesia (ID)\n- Basic computer skills and CRM experience\n- Patient, empathetic, and solution-oriented\n- Willing to work rotational shifts\n\nPreferred\n- Experience with Zendesk, Freshdesk, or Intercom\n- Additional language skills (Taglish fluency, Javanese/Sundanese)\n\nBenefits\n- HMO coverage (PH) / BPJS + private health (ID)\n- 15 days paid leave\n- Performance bonus quarterly\n- Work-from-home 2 days per week\n- Free lunch on office days\n\nApply Now",
+    "quality": {
+      "quality_score": 1.0,
+      "issues": [],
+      "word_count": 143,
+      "has_tables": false,
+      "has_lists": true
+    },
+    "pii_flag": false,
+    "pii_types": [],
+    "pii_count": 0,
+    "pii_max_severity": "none",
+    "pii_findings": [],
+    "redacted_content": "Customer Support Specialist\nLocation: Manila, Philippines OR Jakarta, Indonesia\nDepartment: Customer Success\nExperience: 1-3 years\nSalary Range: PHP 35,000 — 55,000/month (PH) OR IDR 8,000,000 — 15,000,000/month (ID)\nEmployment Type: Full-time\n\nJob Description\nProvide excellent support to candidates and hiring managers using our platform. Handle inquiries via chat, email, and phone in English and local languages.\n\nRequirements\n- 1+ years in customer support or BPO\n- Fluent in English and Filipino/Tagalog (PH) or Bahasa Indonesia (ID)\n- Basic computer skills and CRM experience\n- Patient, empathetic, and solution-oriented\n- Willing to work rotational shifts\n\nPreferred\n- Experience with Zendesk, Freshdesk, or Intercom\n- Additional language skills (Taglish fluency, Javanese/Sundanese)\n\nBenefits\n- HMO coverage (PH) / BPJS + private health (ID)\n- 15 days paid leave\n- Performance bonus quarterly\n- Work-from-home 2 days per week\n- Free lunch on office days\n\nApply Now"
+  },
+  {
+    "source_url": "file://internal/pii_test_document.pdf",
+    "source_type": "pdf",
+    "page_title": "Sample Candidate Records — PII Test",
+    "extraction_date": "2026-08-05",
+    "cleaned_content": "Candidate Database Sample — For Testing Only\n\nRecord 1:\nName: Rajesh Kumar Verma\nEmail: rajesh.verma@gmail.com\nPhone: +91-99887-76655\nAadhaar: 1234-5678-9012\nDate of Birth: 1992-03-15\nCurrent Company: InfoTech Solutions Pvt Ltd\nCurrent Salary: ₹18,00,000 per annum\nApplied for: Senior Software Engineer\nStatus: Screening Pending\n\nRecord 2:\nName: Maria Santos Cruz\nEmail: maria.cruz@yahoo.com\nPhone: +63-917-123-4567\nSSS Number: 12-3456789-0\nDate of Birth: 1995-07-22\nCurrent Company: Globe Telecom\nCurrent Salary: PHP 45,000/month\nApplied for: Customer Support Specialist (Manila)\nStatus: Interview Scheduled\n\nRecord 3:\nName: Budi Santoso\nEmail: budi.s@hotmail.com\nPhone: +62-812-3456-7890\nKTP Number: 3171234567890123\nDate of Birth: 1990-01-10\nCurrent Company: Astra International\nCurrent Salary: IDR 12,000,000/month\nApplied for: Customer Support Specialist (Jakarta)\nStatus: Offer Extended\n\nThis document contains PII and should be handled according to data protection policies.",
+    "quality": {
+      "quality_score": 1.0,
+      "issues": [],
+      "word_count": 122,
+      "has_tables": false,
+      "has_lists": false
+    },
+    "pii_flag": true,
+    "pii_types": [
+      "ktp_indonesia",
+      "salary_individual",
+      "phone_indonesia",
+      "phone_india",
+      "aadhaar",
+      "email",
+      "person_name",
+      "date_of_birth",
+      "phone_philippines",
+      "phone_generic",
+      "sss_philippines"
+    ],
+    "pii_count": 21,
+    "pii_max_severity": "critical",
+    "pii_findings": [
+      {
+        "type": "email",
+        "value": "rajesh.verma@gmail.com",
+        "position": 88,
+        "description": "Email address",
+        "severity": "high"
+      },
+      {
+        "type": "email",
+        "value": "maria.cruz@yahoo.com",
+        "position": 371,
+        "description": "Email address",
+        "severity": "high"
+      },
+      {
+        "type": "email",
+        "value": "budi.s@hotmail.com",
+        "position": 646,
+        "description": "Email address",
+        "severity": "high"
+      },
+      {
+        "type": "phone_india",
+        "value": "+91-99887-76655",
+        "position": 118,
+        "description": "Indian phone number",
+        "severity": "high"
+      },
+      {
+        "type": "phone_philippines",
+        "value": "+63-917-123-4567",
+        "position": 399,
+        "description": "Philippines phone number",
+        "severity": "high"
+      },
+      {
+        "type": "phone_indonesia",
+        "value": "+62-812-3456-7890",
+        "position": 672,
+        "description": "Indonesian phone number",
+        "severity": "high"
+      },
+      {
+        "type": "phone_generic",
+        "value": "+91-99887-76655\n",
+        "position": 118,
+        "description": "International phone number",
+        "severity": "high"
+      },
+      {
+        "type": "phone_generic",
+        "value": "+63-917-123-4567",
+        "position": 399,
+        "description": "International phone number",
+        "severity": "high"
+      },
+      {
+        "type": "phone_generic",
+        "value": "+62-812-3456-7890",
+        "position": 672,
+        "description": "International phone number",
+        "severity": "high"
+      },
+      {
+        "type": "aadhaar",
+        "value": "1234-5678-9012",
+        "position": 143,
+        "description": "Aadhaar number (India)",
+        "severity": "critical"
+      },
+      {
+        "type": "sss_philippines",
+        "value": "12-3456789-0",
+        "position": 428,
+        "description": "SSS number (Philippines)",
+        "severity": "critical"
+      },
+      {
+        "type": "ktp_indonesia",
+        "value": "3171234567890123",
+        "position": 702,
+        "description": "KTP/NIK number (Indonesia) — 16-digit national ID",
+        "severity": "critical"
+      },
+      {
+        "type": "date_of_birth",
+        "value": "Date of Birth: 1992-03-15",
+        "position": 158,
+        "description": "Date of birth",
+        "severity": "high"
+      },
+      {
+        "type": "date_of_birth",
+        "value": "Date of Birth: 1995-07-22",
+        "position": 441,
+        "description": "Date of birth",
+        "severity": "high"
+      },
+      {
+        "type": "date_of_birth",
+        "value": "Date of Birth: 1990-01-10",
+        "position": 719,
+        "description": "Date of birth",
+        "severity": "high"
+      },
+      {
+        "type": "salary_individual",
+        "value": "Current Salary: ₹18,00,000",
+        "position": 228,
+        "description": "Individual salary information",
+        "severity": "medium"
+      },
+      {
+        "type": "salary_individual",
+        "value": "Current Salary: PHP 45,000",
+        "position": 498,
+        "description": "Individual salary information",
+        "severity": "medium"
+      },
+      {
+        "type": "salary_individual",
+        "value": "Current Salary: IDR 12,000,000",
+        "position": 782,
+        "description": "Individual salary information",
+        "severity": "medium"
+      },
+      {
+        "type": "person_name",
+        "value": "Rajesh Kumar Verma",
+        "position": 56,
+        "description": "Person's name",
+        "severity": "high"
+      },
+      {
+        "type": "person_name",
+        "value": "Maria Santos Cruz",
+        "position": 340,
+        "description": "Person's name",
+        "severity": "high"
+      },
+      {
+        "type": "person_name",
+        "value": "Budi Santoso",
+        "position": 620,
+        "description": "Person's name",
+        "severity": "high"
+      }
+    ],
+    "redacted_content": "Candidate Database Sample — For Testing Only\n\nRecord 1:\n[REDACTED_PERSON_NAME] Verma\nEmail: [REDACTED_EMAIL]\nPhone: [REDACTED_PHONE_GENERIC]INDIA]\nAadhaar: [REDACTED_AADHAAR]\n[REDACTED_DATE_OF_BIRTH]\nCurrent Company: InfoTech Solutions Pvt Ltd\n[REDACTED_SALARY_INDIVIDUAL] per annum\nApplied for: Senior Software Engineer\nStatus: Screening Pending\n\nRecord 2:\n[REDACTED_PERSON_NAME]s Cruz\nEmail: [REDACTED_EMAIL]\nPhone: [REDACTED_PHONE_GENERIC]PHILIPPINES]\nSSS Number: [REDACTED_SSS_PHILIPPINES]\n[REDACTED_DATE_OF_BIRTH]\nCurrent Company: Globe Telecom\n[REDACTED_SALARY_INDIVIDUAL]/month\nApplied for: Customer Support Specialist (Manila)\nStatus: Interview Scheduled\n\nRecord 3:\n[REDACTED_PERSON_NAME]antoso\nEmail: [REDACTED_EMAIL]\nPhone: [REDACTED_PHONE_GENERIC]NDONESIA]\nKTP Number: [REDACTED_KTP_INDONESIA]\n[REDACTED_DATE_OF_BIRTH]\nCurrent Company: Astra International\n[REDACTED_SALARY_INDIVIDUAL]/month\nApplied for: Customer Support Specialist (Jakarta)\nStatus: Offer Extended\n\nThis document contains PII and should be handled according to data protection policies."
+  },
+  {
+    "source_url": "https://talentbridge.example.com/tech-stack",
+    "source_type": "website",
+    "page_title": "Our Technology Stack — TalentBridge Engineering Blog",
+    "extraction_date": "2026-08-05",
+    "cleaned_content": "Engineering at TalentBridge — Our Tech Stack\n\nBackend\n- Primary languages: Python 3.12, Go 1.22\n- Frameworks: FastAPI (Python), Gin (Go)\n- Databases: PostgreSQL 16, Redis 7, MongoDB (for unstructured data)\n- Message queue: Apache Kafka\n- Search: Elasticsearch 8\n\nFrontend\n- React 18 with TypeScript\n- Next.js 14 for server-side rendering\n- Tailwind CSS for styling\n- State management: Zustand\n\nInfrastructure\n- Cloud: AWS (primary), GCP (ML workloads)\n- Containerization: Docker + Kubernetes (EKS)\n- CI/CD: GitHub Actions + ArgoCD\n- Monitoring: Datadog, PagerDuty\n- Infrastructure as Code: Terraform\n\nAi/Ml\n- PyTorch for custom models\n- Hugging Face Transformers\n- OpenAI API for LLM features\n- Vector database: Pinecone\n- MLflow for experiment tracking\n\nThis is relevant for candidates interviewing for engineering roles — familiarity with any of these technologies is a plus.",
+    "quality": {
+      "quality_score": 1.0,
+      "issues": [],
+      "word_count": 134,
+      "has_tables": false,
+      "has_lists": true
+    },
+    "pii_flag": false,
+    "pii_types": [],
+    "pii_count": 0,
+    "pii_max_severity": "none",
+    "pii_findings": [],
+    "redacted_content": "Engineering at TalentBridge — Our Tech Stack\n\nBackend\n- Primary languages: Python 3.12, Go 1.22\n- Frameworks: FastAPI (Python), Gin (Go)\n- Databases: PostgreSQL 16, Redis 7, MongoDB (for unstructured data)\n- Message queue: Apache Kafka\n- Search: Elasticsearch 8\n\nFrontend\n- React 18 with TypeScript\n- Next.js 14 for server-side rendering\n- Tailwind CSS for styling\n- State management: Zustand\n\nInfrastructure\n- Cloud: AWS (primary), GCP (ML workloads)\n- Containerization: Docker + Kubernetes (EKS)\n- CI/CD: GitHub Actions + ArgoCD\n- Monitoring: Datadog, PagerDuty\n- Infrastructure as Code: Terraform\n\nAi/Ml\n- PyTorch for custom models\n- Hugging Face Transformers\n- OpenAI API for LLM features\n- Vector database: Pinecone\n- MLflow for experiment tracking\n\nThis is relevant for candidates interviewing for engineering roles — familiarity with any of these technologies is a plus."
+  },
+  {
+    "source_url": "https://talentbridge.example.com/interview-tips",
+    "source_type": "website",
+    "page_title": "Interview Tips for Candidates",
+    "extraction_date": "2026-08-05",
+    "cleaned_content": "Prepare for Your TalentBridge Interview\n\nGeneral Tips\n- Research the company and the specific role before your interview\n- Prepare specific examples of your past work and achievements\n- Be ready to discuss your career goals and why you're interested in TalentBridge\n- Have questions prepared to ask the interviewer\n\nFor Engineering Candidates\n- Practice coding in your preferred language on platforms like LeetCode or HackerRank\n- Review system design concepts (load balancing, database sharding, caching)\n- Be prepared to discuss trade-offs in your design decisions\n- Bring examples of complex systems you've built or contributed to\n\nFor Data Roles\n- Brush up on SQL (joins, window functions, CTEs)\n- Prepare to walk through a data analysis project\n- Be ready for case study questions about metrics and KPIs\n\nFor Product Roles\n- Prepare product sense questions (how would you improve X?)\n- Practice estimation and market sizing\n- Have examples of products you've shipped and their impact\n\nDuring the Interview\n- Think out loud — we want to understand your thought process\n- Ask clarifying questions when needed\n- It's okay to say 'I don't know' — we value honesty\n- Be yourself — we're evaluating fit, not performance\n\nAfter the Interview\n- You'll receive feedback within 5 business days\n- Feel free to follow up with your recruiter if you haven't heard back\n- We encourage you to share your interview experience (anonymously) on Glassdoor",
+    "quality": {
+      "quality_score": 1.0,
+      "issues": [],
+      "word_count": 237,
+      "has_tables": false,
+      "has_lists": true
+    },
+    "pii_flag": false,
+    "pii_types": [],
+    "pii_count": 0,
+    "pii_max_severity": "none",
+    "pii_findings": [],
+    "redacted_content": "Prepare for Your TalentBridge Interview\n\nGeneral Tips\n- Research the company and the specific role before your interview\n- Prepare specific examples of your past work and achievements\n- Be ready to discuss your career goals and why you're interested in TalentBridge\n- Have questions prepared to ask the interviewer\n\nFor Engineering Candidates\n- Practice coding in your preferred language on platforms like LeetCode or HackerRank\n- Review system design concepts (load balancing, database sharding, caching)\n- Be prepared to discuss trade-offs in your design decisions\n- Bring examples of complex systems you've built or contributed to\n\nFor Data Roles\n- Brush up on SQL (joins, window functions, CTEs)\n- Prepare to walk through a data analysis project\n- Be ready for case study questions about metrics and KPIs\n\nFor Product Roles\n- Prepare product sense questions (how would you improve X?)\n- Practice estimation and market sizing\n- Have examples of products you've shipped and their impact\n\nDuring the Interview\n- Think out loud — we want to understand your thought process\n- Ask clarifying questions when needed\n- It's okay to say 'I don't know' — we value honesty\n- Be yourself — we're evaluating fit, not performance\n\nAfter the Interview\n- You'll receive feedback within 5 business days\n- Feel free to follow up with your recruiter if you haven't heard back\n- We encourage you to share your interview experience (anonymously) on Glassdoor"
+  }
+]

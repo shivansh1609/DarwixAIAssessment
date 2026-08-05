@@ -1,0 +1,46 @@
+{
+  "assistant": {
+    "name": "TalentBridge Screening Agent",
+    "model": {
+      "provider": "openai",
+      "model": "gpt-4o",
+      "temperature": 0.3,
+      "maxTokens": 500,
+      "systemMessage": "{{SYSTEM_PROMPT_FROM_system_prompt.md}}"
+    },
+    "voice": {
+      "provider": "11labs",
+      "voiceId": "rachel",
+      "stability": 0.6,
+      "similarityBoost": 0.8
+    },
+    "transcriber": {
+      "provider": "deepgram",
+      "model": "nova-2",
+      "language": "en",
+      "smartFormat": true
+    },
+    "firstMessage": "Hello! Thank you for reaching out to TalentBridge. I'm Sarah, your screening coordinator. I'd love to learn a bit about your background and answer any questions you have about the position you applied for. Could you start by confirming your name and which role you're interested in?",
+    "serverUrl": "{{YOUR_NGROK_URL}}/api/vapi/webhook",
+    "serverUrlSecret": "{{VAPI_WEBHOOK_SECRET}}",
+    "endCallFunctionEnabled": true,
+    "endCallMessage": "Thank you so much for your time today! Our team will review your profile and get back to you within 3-5 business days. We truly appreciate your interest in TalentBridge. Have a wonderful day!",
+    "silenceTimeoutSeconds": 15,
+    "maxDurationSeconds": 1200,
+    "backgroundSound": "off",
+    "responseDelaySeconds": 0.5,
+    "hipaaEnabled": false,
+    "recordingEnabled": true
+  },
+  "phoneNumber": {
+    "_note": "Either purchase a Vapi phone number or use the web calling widget",
+    "provider": "vapi",
+    "number": "{{VAPI_PHONE_NUMBER}}"
+  },
+  "webWidget": {
+    "_note": "Alternative: embed the Vapi web widget for browser-based calls",
+    "enabled": true,
+    "publicKey": "{{VAPI_PUBLIC_KEY}}",
+    "assistantId": "{{VAPI_ASSISTANT_ID}}"
+  }
+}

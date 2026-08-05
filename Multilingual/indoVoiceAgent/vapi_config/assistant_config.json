@@ -1,0 +1,55 @@
+{
+  "assistant": {
+    "name": "TalentBridge Indonesia — Screening Agent",
+    "model": {
+      "provider": "groq",
+      "model": "llama-3.1-70b-versatile",
+      "temperature": 0.4,
+      "maxTokens": 500,
+      "systemMessage": "{{LOAD_FROM: system_prompt_id.md}}"
+    },
+    "voice": {
+      "provider": "edge-tts",
+      "voiceId": "id-ID-GadisNeural",
+      "_alternatives": [
+        "id-ID-ArdiNeural (male)",
+        "id-ID-GadisNeural (female)"
+      ],
+      "_note": "edge-tts provides free, high-quality Indonesian neural voices. No API key needed."
+    },
+    "transcriber": {
+      "provider": "web-speech-api",
+      "language": "id-ID",
+      "_note": "Chrome Web Speech API supports id-ID. Accuracy: ~85% for formal Bahasa, ~70% for colloquial/regional."
+    },
+    "firstMessage": "Selamat siang, Bapak atau Ibu. Saya Budi dari TalentBridge Indonesia. Terima kasih sudah melamar di perusahaan kami. Saya ingin melakukan screening singkat, sekitar 15 sampai 20 menit. Apakah sekarang waktunya pas?",
+    "endCallMessage": "Terima kasih banyak atas waktunya, Bapak atau Ibu. Tim kami akan review profil Anda dan memberikan update dalam 3 sampai 5 hari kerja. Selamat siang.",
+    "recordingEnabled": true
+  },
+  "asr_evaluation": {
+    "provider": "Web Speech API (Chrome)",
+    "model": "Built-in (Google Cloud STT backend)",
+    "languages_tested": ["id-ID", "en-US"],
+    "code_switching_behavior": "Good — Indonesian Web Speech API handles English loanwords (backend, Python, interview) well since they're common in professional Indonesian. Pure English sentences switch to English recognition automatically in Chrome.",
+    "approximate_quality": {
+      "formal_bahasa": "~85%",
+      "colloquial_jakarta": "~75%",
+      "javanese_accented": "~70%",
+      "english_mixed": "~88%"
+    },
+    "observed_errors": [
+      "'nggak' (Javanese no) sometimes transcribed as 'ngak' or 'nag'",
+      "'Bapak' occasionally split as 'ba pak'",
+      "Numbers in Rupiah format sometimes garbled ('delapan juta' → OK, but rapid number sequences less reliable)",
+      "'mas' and 'mbak' (Javanese address) generally recognized correctly",
+      "Sundanese particles ('teh', 'mah', 'euy') rarely recognized — treated as noise"
+    ],
+    "regional_accent_performance": {
+      "jakarta_standard": "Good (~85%)",
+      "javanese_accented": "Moderate (~70%) — 'e' vowel shift causes some errors",
+      "sundanese_accented": "Low (~65%) — minimal training data",
+      "batak_accented": "Not tested"
+    },
+    "tts_notes": "edge-tts id-ID-GadisNeural is natural and high-quality for formal Bahasa. Slightly formal for colloquial speech. No Javanese/Sundanese TTS voices available."
+  }
+}
