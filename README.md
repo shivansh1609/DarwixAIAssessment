@@ -1,88 +1,76 @@
 # 🎙️ VoxIntel AI
 
-> **Knowledge-Grounded Voice Intelligence Platform**
+<div align="center">
 
-VoxIntel AI is an AI-powered voice assistant platform built using FastAPI, Groq LLM, and Retrieval-Augmented Generation (RAG). It supports multilingual voice conversations, knowledge-grounded responses, and real-time conversational insights through an intuitive web interface.
+### AI-Powered Voice Intelligence Platform
+
+Knowledge-Grounded • Multilingual • Real-Time Insights
+
+![Python](https://img.shields.io/badge/Python-3.10+-3776AB?style=for-the-badge&logo=python&logoColor=white)
+![FastAPI](https://img.shields.io/badge/FastAPI-Backend-009688?style=for-the-badge&logo=fastapi&logoColor=white)
+![Groq](https://img.shields.io/badge/Groq-LLM-black?style=for-the-badge)
+![JavaScript](https://img.shields.io/badge/JavaScript-Frontend-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black)
+
+</div>
 
 ---
 
-## ✨ Features
+# 📖 Overview
 
-- 🎤 AI-powered Voice Assistant
+VoxIntel AI is a modern AI-powered voice assistant platform that combines speech recognition, large language models, knowledge-grounded retrieval, multilingual support, and live conversational analytics into a unified web experience.
+
+The platform enables natural voice conversations while retrieving contextual information from a knowledge base and providing real-time insights through an interactive dashboard.
+
+---
+
+# ✨ Features
+
+- 🎤 AI Voice Assistant
 - 🧠 Knowledge-Grounded Responses (RAG)
 - 🌍 Multilingual Voice Support
-- 📚 Local Knowledge Base Retrieval
+- 📚 Semantic Knowledge Retrieval
 - ⚡ Real-Time Live Insights Dashboard
-- 🔊 Text-to-Speech using Microsoft Edge TTS
-- 🎧 Offline Speech Recognition using Vosk
-- 🔄 WebSocket-based Live Updates
-- 📱 Responsive Dark-Themed Interface
+- 🔊 Text-to-Speech Responses
+- 🎧 Speech Recognition
+- 📡 WebSocket Communication
+- 💻 Modern Responsive UI
 
 ---
 
+# 🏗️ Project Architecture
 
-
----
-
-## 🏗️ System Architecture
-
-```mermaid
-flowchart LR
-
-User((👤 User))
-
-subgraph Frontend
-    UI[Voice Agent UI]
-    Dashboard[Live Insights Dashboard]
-end
-
-subgraph Backend
-    API[FastAPI Backend]
-    Chat[/Chat API/]
-    KB[/Knowledge API/]
-    TTS[/TTS Service/]
-end
-
-subgraph AI
-    Groq[Groq Llama 3.1]
-    VectorDB[Knowledge Base]
-end
-
-subgraph Voice
-    STT[Web Speech API / Vosk]
-    EdgeTTS[Edge TTS]
-end
-
-subgraph Analytics
-    Signal[Signal Detection]
-    Nudge[Nudge Engine]
-    WS[WebSocket]
-end
-
-User --> STT
-STT --> UI
-
-UI --> Chat
-Chat --> API
-
-API --> Groq
-API --> KB
-KB --> VectorDB
-
-Groq --> TTS
-TTS --> EdgeTTS
-EdgeTTS --> UI
-
-API --> Signal
-Signal --> Nudge
-Nudge --> WS
-WS --> Dashboard
 ```
+                    User
+                      │
+                      ▼
+             ┌─────────────────┐
+             │   Frontend UI   │
+             │ Voice Dashboard │
+             └────────┬────────┘
+                      │
+                      ▼
+             ┌─────────────────┐
+             │ FastAPI Backend │
+             └───┬─────┬───────┘
+                 │     │
+                 │     ├────────────► Knowledge Base
+                 │
+                 ├────────────► Groq LLM
+                 │
+                 └────────────► Speech Services
+                      │
+                      ▼
+             ┌─────────────────┐
+             │ Live Insights   │
+             └─────────────────┘
+```
+
+---
 
 # 📂 Project Structure
 
 ```
-voxintel-ai
+VoxIntelAI
 │
 ├── docs/
 │
@@ -94,10 +82,12 @@ voxintel-ai
 ├── KnowledgeBase/
 │
 ├── Multilingual/
-│   ├── philippines/
-│   └── indonesia/
+│   ├── indonesia/
+│   └── philippines/
 │
 ├── LiveInsights/
+│   ├── dashboard/
+│   └── pipeline/
 │
 ├── requirements.txt
 ├── .env.example
@@ -107,7 +97,7 @@ voxintel-ai
 
 ---
 
-# ⚙️ Tech Stack
+# 🛠️ Tech Stack
 
 ### Backend
 
@@ -118,42 +108,42 @@ voxintel-ai
 ### AI
 
 - Groq LLM
+- Retrieval-Augmented Generation (RAG)
 - Sentence Transformers
-- RAG Pipeline
 
 ### Speech
 
 - Web Speech API
-- Edge TTS
+- Microsoft Edge TTS
 - Vosk
 
 ### Knowledge Base
 
-- Chroma-style Vector Retrieval
+- Vector Embeddings
+- Semantic Search
 - NumPy
 - BeautifulSoup
-- PDF Parsing
 
 ### Frontend
 
-- HTML5
-- CSS3
+- HTML
+- CSS
 - JavaScript
 
 ---
 
 # 🚀 Getting Started
 
-## 1. Clone Repository
+## Clone Repository
 
 ```bash
-git clone https://github.com/<your-username>/voxintel-ai.git
-cd voxintel-ai
+git clone https://github.com/shivansh1609/DarwixAIAssessment.git
+cd DarwixAIAssessment
 ```
 
 ---
 
-## 2. Create Virtual Environment
+## Create Virtual Environment
 
 Windows
 
@@ -171,7 +161,7 @@ source venv/bin/activate
 
 ---
 
-## 3. Install Dependencies
+## Install Dependencies
 
 ```bash
 pip install -r requirements.txt
@@ -179,22 +169,22 @@ pip install -r requirements.txt
 
 ---
 
-## 4. Configure Environment
+## Configure Environment
 
-Create a `.env` file using the provided `.env.example`.
-
-Example:
+Create a `.env` file from `.env.example`.
 
 ```env
-GROQ_API_KEY=your_api_key_here
+GROQ_API_KEY=your_api_key
+
 HOST=0.0.0.0
 PORT=8000
+
 DEBUG=True
 ```
 
 ---
 
-## 5. Start the Backend
+## Run Backend
 
 ```bash
 uvicorn api.main:app --reload
@@ -202,98 +192,107 @@ uvicorn api.main:app --reload
 
 ---
 
-## 6. Open the Frontend
+## Open Frontend
 
-Open:
+Open
 
 ```
 VoiceAgent/web_client/index.html
 ```
 
-or serve it using a local HTTP server.
+or serve it using any local web server.
 
 ---
 
-# 📊 Modules
+# 📦 Modules
 
-## 🎤 Q1 — Voice Agent
+### 🎤 Voice Agent
 
-- AI-powered voice conversation
-- Real-time speech recognition
-- Text-to-speech responses
-- Interactive voice interface
+- Voice interaction
+- Speech recognition
+- AI responses
+- Text-to-Speech
 
 ---
 
-## 📚 Q2 — Knowledge Base
+### 📚 Knowledge Base
 
-- Retrieval-Augmented Generation (RAG)
-- Semantic search
-- Vector-based retrieval
+- Semantic retrieval
 - Source-grounded responses
+- Vector search
 
 ---
 
-## 🌍 Q3 — Multilingual Voice Assistant
+### 🌍 Multilingual Support
 
-Supports localized voice interactions for:
+- Indonesia
+- Philippines
 
-- 🇵🇭 Philippines
-- 🇮🇩 Indonesia
-
-Features include:
-
-- Localization
-- Cultural adaptation
-- Code-switching
-- Market-specific prompts
+Supports localization, code-switching, and region-specific conversational behavior.
 
 ---
 
-## 📈 Q4 — Live Insights
+### 📊 Live Insights
 
-- Real-time transcript
-- AI-generated nudges
+- Conversation transcript
 - Signal detection
-- WebSocket dashboard
-- Conversation monitoring
-
----
-
-# 📌 Future Improvements
-
-- User Authentication
-- Voice Analytics
-- Conversation History
-- Multiple LLM Support
-- Cloud Deployment
-- Docker Support
-- Admin Dashboard
-- CI/CD Pipeline
+- AI nudges
+- Real-time dashboard
 
 ---
 
 # 🔒 Environment Variables
 
-The project requires a `.env` file for API credentials.
+Create a `.env` file using the provided `.env.example`.
 
-A template is provided in `.env.example`.
+Example:
 
-Do **not** commit your `.env` file to GitHub.
+```
+GROQ_API_KEY=your_api_key
+```
+
+> **Note:** Never commit your `.env` file or API keys to GitHub.
+
+---
+
+# 📌 Future Improvements
+
+- Docker Support
+- Authentication
+- Conversation History
+- Cloud Deployment
+- Additional LLM Providers
+- Voice Analytics
+- Admin Dashboard
+- CI/CD Pipeline
+
+---
+
+# 📷 Screenshots
+
+You can add screenshots here after uploading them.
+
+```
+docs/screenshots/home.png
+
+docs/screenshots/dashboard.png
+
+docs/screenshots/voice-agent.png
+```
 
 ---
 
 # 🤝 Contributing
 
-Contributions are welcome.
+Contributions are always welcome.
 
-Feel free to open issues or submit pull requests to improve the project.
+Feel free to fork the repository and submit a pull request.
 
 ---
 
 # 📄 License
 
-This project is released under the **MIT License**.
+This project is licensed under the MIT License.
 
 ---
 
@@ -301,9 +300,16 @@ This project is released under the **MIT License**.
 
 **Shivansh Pandey**
 
-- GitHub: https://github.com/shivansh1609
-- LinkedIn: https://www.linkedin.com/in/shivanshupandey16/
+GitHub:
+https://github.com/shivansh1609
+
+LinkedIn:
+https://www.linkedin.com/in/shivanshupandey16/
 
 ---
 
-⭐ If you found this project useful, consider giving it a star!
+<div align="center">
+
+⭐ If you found this project useful, consider giving it a star.
+
+</div>
