@@ -24,55 +24,60 @@ VoxIntel AI is an AI-powered voice assistant platform built using FastAPI, Groq 
 
 ---
 
-# 🏗️ System Architecture
+## 🏗️ System Architecture
 
 ```mermaid
-flowchart TD
+flowchart LR
 
-    User([👤 User])
+User((👤 User))
 
-    User --> Browser
+subgraph Frontend
+    UI[Voice Agent UI]
+    Dashboard[Live Insights Dashboard]
+end
 
-    subgraph Browser["🌐 Frontend"]
-        Browser["Voice Agent UI"]
-        Dashboard["Live Insights Dashboard"]
-    end
+subgraph Backend
+    API[FastAPI Backend]
+    Chat[/Chat API/]
+    KB[/Knowledge API/]
+    TTS[/TTS Service/]
+end
 
-    Browser --> API
-    Dashboard --> API
+subgraph AI
+    Groq[Groq Llama 3.1]
+    VectorDB[Knowledge Base]
+end
 
-    subgraph Backend["⚡ FastAPI Backend"]
-        API["REST API"]
-        Voice["Voice Processing"]
-        Knowledge["Knowledge Retrieval"]
-        Analytics["Insights Engine"]
-    end
+subgraph Voice
+    STT[Web Speech API / Vosk]
+    EdgeTTS[Edge TTS]
+end
 
-    API --> LLM
-    API --> VectorDB
-    Voice --> TTS
-    Analytics --> WS
+subgraph Analytics
+    Signal[Signal Detection]
+    Nudge[Nudge Engine]
+    WS[WebSocket]
+end
 
-    subgraph AI["🧠 AI Layer"]
-        LLM["Groq Llama 3.1"]
-        VectorDB["Knowledge Base"]
-    end
+User --> STT
+STT --> UI
 
-    subgraph Speech["🎙️ Speech Services"]
-        STT["Web Speech API / Vosk"]
-        TTS["Edge TTS"]
-    end
+UI --> Chat
+Chat --> API
 
-    subgraph Realtime["📡 Live Communication"]
-        WS["WebSocket Server"]
-    end
+API --> Groq
+API --> KB
+KB --> VectorDB
 
-    STT --> Browser
-    TTS --> Browser
-    WS --> Dashboard
+Groq --> TTS
+TTS --> EdgeTTS
+EdgeTTS --> UI
 
+API --> Signal
+Signal --> Nudge
+Nudge --> WS
+WS --> Dashboard
 ```
----
 
 # 📂 Project Structure
 
