@@ -268,48 +268,9 @@ GROQ_API_KEY=your_api_key
 
 ---
 
-# 📷 Screenshots
-
-You can add screenshots here after uploading them.
-
-```
-docs/screenshots/home.png
-
-docs/screenshots/dashboard.png
-
-docs/screenshots/voice-agent.png
-```
-
----
-
-# 🤝 Contributing
-
-Contributions are always welcome.
-
-Feel free to fork the repository and submit a pull request.
-
----
-
-# 📄 License
-
-This project is licensed under the MIT License.
-
----
 
 # 👨‍💻 Author
 
-**Shivansh Pandey**
+**Shivanshu Pandey**
 
-GitHub:
-https://github.com/shivansh1609
-
-LinkedIn:
-https://www.linkedin.com/in/shivanshupandey16/
-
----
-
-<div align="center">
-
-⭐ If you found this project useful, consider giving it a star.
-
-</div>
+--
