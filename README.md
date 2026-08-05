@@ -24,59 +24,54 @@ VoxIntel AI is an AI-powered voice assistant platform built using FastAPI, Groq 
 
 ---
 
-# 🏗️ Architecture
+# 🏗️ System Architecture
 
 ```mermaid
-flowchart LR
+flowchart TD
 
-User((👤 User))
+    User([👤 User])
 
-subgraph Frontend
-Voice["🎤 Voice Interface"]
-Dashboard["📊 Live Insights Dashboard"]
-end
+    User --> Browser
 
-subgraph Backend
-FastAPI["⚡ FastAPI API"]
-end
+    subgraph Browser["🌐 Frontend"]
+        Browser["Voice Agent UI"]
+        Dashboard["Live Insights Dashboard"]
+    end
 
-subgraph AI
-Groq["🧠 Groq LLM"]
-Knowledge["📚 Knowledge Base"]
-Embeddings["🔍 Sentence Transformers"]
-end
+    Browser --> API
+    Dashboard --> API
 
-subgraph Voice
-Speech["🎙️ Web Speech API"]
-TTS["🔊 Edge TTS"]
-ASR["🎧 Vosk"]
-end
+    subgraph Backend["⚡ FastAPI Backend"]
+        API["REST API"]
+        Voice["Voice Processing"]
+        Knowledge["Knowledge Retrieval"]
+        Analytics["Insights Engine"]
+    end
 
-subgraph Analytics
-Signal["Signal Detection"]
-Nudge["AI Nudge Engine"]
-WS["WebSocket"]
-end
+    API --> LLM
+    API --> VectorDB
+    Voice --> TTS
+    Analytics --> WS
 
-User --> Speech
-Speech --> Voice
-Voice --> FastAPI
+    subgraph AI["🧠 AI Layer"]
+        LLM["Groq Llama 3.1"]
+        VectorDB["Knowledge Base"]
+    end
 
-FastAPI --> Groq
-FastAPI --> Knowledge
-Knowledge --> Embeddings
+    subgraph Speech["🎙️ Speech Services"]
+        STT["Web Speech API / Vosk"]
+        TTS["Edge TTS"]
+    end
 
-Groq --> TTS
-TTS --> Voice
+    subgraph Realtime["📡 Live Communication"]
+        WS["WebSocket Server"]
+    end
 
-ASR --> Signal
-Signal --> Nudge
-Nudge --> WS
-WS --> Dashboard
+    STT --> Browser
+    TTS --> Browser
+    WS --> Dashboard
 
-Voice --> Dashboard
 ```
-
 ---
 
 # 📂 Project Structure
