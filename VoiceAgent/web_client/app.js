@@ -1,11 +1,3 @@
-/**
- * TalentBridge Voice Agent — Web Client
- * ======================================
- * Uses browser-native Web Speech API (free) for STT
- * and edge-tts via backend API (free) for TTS.
- *
- * No API keys needed on the client side.
- */
 
 const API_BASE = window.location.origin;
 let sessionId = crypto.randomUUID();
@@ -16,7 +8,6 @@ let isSpeaking = false;
 let callStartTime = null;
 let transcriptData = [];
 
-// ─── Initialize ────────────────────────────────────────────────
 
 document.addEventListener('DOMContentLoaded', () => {
     checkBrowserSupport();
@@ -83,15 +74,15 @@ async function startCall() {
     const btn = document.getElementById('btnCall');
     setMicButtonState('active');
     btn.classList.add('active');
-    document.getElementById('btnText').textContent = 'End Call';
-    document.getElementById('callHint').textContent = 'Call in progress...';
+    document.getElementById('btnText').textContent = 'End Session';
+    document.getElementById('callHint').textContent = 'Voice session in progress...';
     document.getElementById('agentAvatar').closest('.call-panel').classList.add('active');
     document.getElementById('waveform').classList.add('active');
     updateStatus('Connected', 'active');
 
     clearTranscriptUI();
 
-    const greeting = "Hello! Thank you for reaching out to TalentBridge. I'm Sarah, your screening coordinator. I'd love to learn a bit about your background and answer any questions you have about the position you applied for. Could you start by confirming your name and which role you're interested in?";
+    const greeting = "Hello and welcome to VoxIntel AI! I'm Ava, your AI Recruitment Specialist. I'll guide you through a quick voice-based screening and help answer any questions about the opportunity. To get started, could you please introduce yourself and tell me which position you're applying for?";
     addMessage('bot', greeting);
 
     await speakText(greeting);
@@ -105,11 +96,11 @@ function endCall() {
     const btn = document.getElementById('btnCall');
     btn.classList.remove('active');
     setMicButtonState('idle');
-    document.getElementById('btnText').textContent = 'Start Screening Call';
-    document.getElementById('callHint').textContent = 'Call ended. Click to start a new conversation.';
+    document.getElementById('btnText').textContent = 'Start Voice Session';
+    document.getElementById('callHint').textContent = 'Session ended. Click to start a new conversation.';
     document.getElementById('agentAvatar').closest('.call-panel').classList.remove('active');
     document.getElementById('waveform').classList.remove('active');
-    updateStatus('Ready', '');
+    updateStatus('AI Ready', '');
 
     addMessage('system', '— Call ended —');
 }
@@ -317,7 +308,7 @@ function addMessage(speaker, text, isInterim = false, isThinking = false) {
     const mins = Math.floor(elapsed / 60);
     const secs = (elapsed % 60).toString().padStart(2, '0');
 
-    const speakerLabel = speaker === 'user' ? 'You' : speaker === 'bot' ? 'Sarah (Agent)' : 'System';
+    const speakerLabel = speaker === 'user' ? 'You' : speaker === 'bot' ? 'Ava (AI)' : 'System';
 
     div.innerHTML = `
         <span class="message-speaker">${speakerLabel}</span>
@@ -349,7 +340,7 @@ function clearTranscriptUI() {
     body.innerHTML = `
         <div class="transcript-empty">
             <div class="empty-icon">✦</div>
-            <p>Transcript will appear here when the call starts.</p>
+            <p>Your transcript will appear here when the voice session starts.</p>
         </div>
     `;
 }
@@ -360,7 +351,7 @@ function downloadTranscript() {
         return;
     }
 
-    let md = `# TalentBridge Screening Call Transcript\n`;
+    let md = `# VoxIntel AI Voice Session Transcript\n`;
     md += `**Date**: ${new Date().toISOString().split('T')[0]}\n`;
     md += `**Session**: ${sessionId}\n\n`;
     md += `| Time | Speaker | Text |\n|------|---------|------|\n`;

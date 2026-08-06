@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TalentBridge — AI Screening Call</title>
-    <meta name="description" content="AI-powered candidate screening voice agent for TalentBridge recruitment">
+    <title>VoxIntel AI</title>
+    <meta name="description" content="AI-powered voice intelligence platform for modern recruitment and candidate screening">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/static/style.css">
 </head>
@@ -15,18 +15,18 @@
     <div class="app-shell">
         <header class="topbar">
             <div class="brand">
-                <div class="brand-mark">TB</div>
+                <div class="brand-mark">VI</div>
                 <div>
-                    <h1>TalentBridge</h1>
-                    <p class="subtitle">AI candidate screening • Premium voice recruiting</p>
+                    <h1>VoxIntel AI</h1>
+                    <p class="subtitle">AI-Powered Voice Intelligence Platform • Smart Hiring Assistant</p>
                 </div>
             </div>
 
             <div class="header-actions">
-                <div class="pill-pill">Live assessment</div>
+                <div class="pill-pill">Live Voice Session</div>
                 <div class="status-badge" id="statusBadge">
                     <span class="status-dot"></span>
-                    <span id="statusText">Ready</span>
+                    <span id="statusText">AI Ready</span>
                 </div>
             </div>
         </header>
@@ -34,9 +34,9 @@
         <main class="main-content">
             <section class="call-panel">
                 <div class="panel-intro">
-                    <div class="eyebrow">Voice agent • recruiter copilot</div>
-                    <h2>Screen candidates with an experience that feels premium, fast, and human.</h2>
-                    <p>Launch a polished conversational interview with instant transcript capture and live status insight.</p>
+                    <div class="eyebrow">Voice Assistant • Intelligent Recruitment</div>
+                    <h2>Transform Candidate Screening with AI-Powered Voice Intelligence.</h2>
+                    <p>Conduct intelligent voice conversations powered by AI, real-time transcription, multilingual support, and actionable hiring insights—all through a modern conversational interface.</p>
                 </div>
 
                 <div class="hero-grid">
@@ -46,8 +46,8 @@
                                 <div class="avatar-inner">S</div>
                             </div>
                             <div class="agent-meta">
-                                <p class="agent-name">Sarah</p>
-                                <p class="agent-role">Screening coordinator</p>
+                                <p class="agent-name">Ava</p>
+                                <p class="agent-role">AI Recruitment Specialist</p>
                             </div>
                         </div>
 
@@ -64,7 +64,7 @@
                     </div>
 
                     <div class="control-card">
-                        <button class="btn-call" id="btnCall" onclick="toggleCall()" aria-label="Start or end the screening call">
+                        <button class="btn-call" id="btnCall" onclick="toggleCall()" aria-label="Start or end the voice session">
                             <span class="mic-shell">
                                 <svg id="micIcon" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                                     <path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"/>
@@ -73,9 +73,9 @@
                                     <line x1="8" y1="23" x2="16" y2="23"/>
                                 </svg>
                             </span>
-                            <span class="btn-copy" id="btnText">Start Screening Call</span>
+                            <span class="btn-copy" id="btnText">Start Voice Session</span>
                         </button>
-                        <p class="call-hint" id="callHint">Click to begin your screening conversation with Sarah</p>
+                        <p class="call-hint" id="callHint">Click to begin a voice-powered screening conversation with Ava</p>
 
                         <div class="waveform" id="waveform" aria-hidden="true">
                             <div class="wave-bar"></div>
@@ -106,8 +106,8 @@
             <section class="transcript-panel">
                 <div class="panel-header">
                     <div>
-                        <p class="panel-title">Live transcript</p>
-                        <p class="panel-subtitle">Real-time conversation stream</p>
+                        <p class="panel-title">Live transcript feed</p>
+                        <p class="panel-subtitle">Real-time voice and insight stream</p>
                     </div>
                     <div class="transcript-controls">
                         <button class="btn-sm" onclick="clearTranscript()">Clear</button>
@@ -117,8 +117,8 @@
                 <div class="transcript-body" id="transcriptBody" aria-live="polite">
                     <div class="transcript-empty">
                         <div class="empty-icon">✦</div>
-                        <p>Your transcript will appear here when the call starts.</p>
-                        <p class="text-muted">Uses your browser’s built-in speech recognition — no API key needed.</p>
+                        <p>Your live transcript will appear here when the voice session begins.</p>
+                        <p class="text-muted">Powered by AI conversation intelligence and real-time speech capture.</p>
                     </div>
                 </div>
             </section>
