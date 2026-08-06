@@ -84,8 +84,8 @@
     },
     "pii_flag": true,
     "pii_types": [
-      "phone_generic",
       "phone_india",
+      "phone_generic",
       "email"
     ],
     "pii_count": 3,
@@ -355,17 +355,17 @@
     },
     "pii_flag": true,
     "pii_types": [
-      "ktp_indonesia",
-      "salary_individual",
-      "phone_indonesia",
-      "phone_india",
-      "aadhaar",
       "email",
       "person_name",
-      "date_of_birth",
+      "aadhaar",
       "phone_philippines",
+      "date_of_birth",
+      "salary_individual",
+      "sss_philippines",
       "phone_generic",
-      "sss_philippines"
+      "phone_indonesia",
+      "ktp_indonesia",
+      "phone_india"
     ],
     "pii_count": 21,
     "pii_max_severity": "critical",

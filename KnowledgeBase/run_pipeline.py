@@ -1,12 +1,4 @@
-"""
-Q2 Knowledge Base — Full Pipeline Runner
-==========================================
-Runs the complete pipeline: scrape → clean → PII detect → dedup → chunk → index
 
-Usage:
-    python run_pipeline.py              # Full pipeline with demo data
-    python run_pipeline.py --skip-index # Skip indexing (no OpenAI key needed)
-"""
 
 import os
 import sys

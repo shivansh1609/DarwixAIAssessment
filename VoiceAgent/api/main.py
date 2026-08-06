@@ -15,9 +15,11 @@ Endpoints:
     GET  /                      — Web calling interface
 """
 
+import asyncio
 import json
 import os
 import sys
+import time
 import uuid
 import logging
 import tempfile
@@ -34,9 +36,13 @@ from fastapi.staticfiles import StaticFiles
 from pydantic import BaseModel, Field
 import uvicorn
 
-# Add Q2 scripts to path for KB access
-Q2_SCRIPTS = os.path.join(os.path.dirname(__file__), "..", "..", "q2_knowledge_base", "scripts")
-sys.path.insert(0, Q2_SCRIPTS)
+# Add KnowledgeBase and LiveInsights paths for minimal module integration
+KB_ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "..", "KnowledgeBase"))
+KB_SCRIPTS = os.path.join(KB_ROOT, "scripts")
+LIVE_INSIGHTS_PIPELINE = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "..", "LiveInsights", "pipeline"))
+for path in [KB_SCRIPTS, LIVE_INSIGHTS_PIPELINE]:
+    if path not in sys.path:
+        sys.path.insert(0, path)
 
 logging.basicConfig(level=logging.INFO, format="%(asctime)s [%(levelname)s] %(message)s")
 logger = logging.getLogger(__name__)
@@ -56,6 +62,20 @@ try:
 except ImportError:
     HAS_EDGE_TTS = False
     logger.warning("edge-tts not installed. Run: pip install edge-tts")
+
+try:
+    from indexer import KnowledgeBaseIndex
+    HAS_KB_INDEX = True
+except Exception as e:
+    HAS_KB_INDEX = False
+    logger.warning(f"KnowledgeBase index import failed: {e}")
+
+try:
+    from orchestrator import PipelineOrchestrator, run_dashboard_server
+    HAS_LIVE_INSIGHTS = True
+except Exception as e:
+    HAS_LIVE_INSIGHTS = False
+    logger.warning(f"LiveInsights integration unavailable: {e}")
 
 
 def get_groq_client():
@@ -82,8 +102,9 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-# Serve the web calling interface
-WEB_DIR = os.path.join(os.path.dirname(__file__), "..", "web_client")
+# Serve the web calling interface using paths anchored to this file's location.
+API_DIR = os.path.dirname(os.path.abspath(__file__))
+WEB_DIR = os.path.abspath(os.path.join(API_DIR, "..", "web_client"))
 if os.path.exists(WEB_DIR):
     app.mount("/static", StaticFiles(directory=WEB_DIR), name="static")
 
@@ -92,6 +113,9 @@ if os.path.exists(WEB_DIR):
 leads_store: list[dict] = []
 escalations_store: list[dict] = []
 conversation_histories: dict[str, list[dict]] = {}  # session_id → messages
+conversation_states: dict[str, dict] = {}  # session_id → transcript state
+live_insights_orchestrator = None
+live_insights_server = None
 
 # ─── System Prompt ──────────────────────────────────────────────────────────
 
@@ -112,12 +136,11 @@ SYSTEM_PROMPT = load_system_prompt()
 _kb_index = None
 
 def get_kb_index():
-    """Lazy-load the KB index."""
+    """Lazy-load the KB index from the existing KnowledgeBase folder."""
     global _kb_index
     if _kb_index is None:
         try:
-            from indexer import KnowledgeBaseIndex
-            chroma_dir = os.path.join(os.path.dirname(__file__), "..", "..", "q2_knowledge_base", "chroma_db")
+            chroma_dir = os.path.join(KB_ROOT, "chroma_db")
             _kb_index = KnowledgeBaseIndex(persist_dir=chroma_dir)
             logger.info(f"KB index loaded: {_kb_index.get_stats()}")
         except Exception as e:
@@ -125,22 +148,105 @@ def get_kb_index():
     return _kb_index
 
 
-def search_kb(query: str, category: str = None) -> str:
-    """Search KB and return formatted results for the LLM."""
+def retrieve_relevant_context(query: str, category: str = None, top_k: int = 3) -> list[dict]:
+    """Retrieve top-k KB chunks with similarity and source metadata for prompt augmentation."""
     index = get_kb_index()
     if index is None:
-        return "Knowledge base is not available right now."
+        return []
 
-    results = index.search(query, top_k=3, category=category)
+    results = index.search(query, top_k=top_k, category=category)
+    context_items = []
+    for result in results:
+        metadata = result.get("metadata") or {}
+        context_items.append({
+            "text": result.get("content", "").strip(),
+            "similarity_score": result.get("similarity_score", 0.0),
+            "source_metadata": {
+                "title": result.get("title") or metadata.get("title", "Unknown"),
+                "source_url": result.get("source_url") or metadata.get("source_url", ""),
+                "category": result.get("category") or metadata.get("category", "general"),
+                "record_id": result.get("record_id") or metadata.get("record_id", ""),
+            },
+        })
+    return context_items
+
+
+def search_kb(query: str, category: str = None) -> str:
+    """Search KB and return formatted results for the LLM."""
+    results = retrieve_relevant_context(query, category=category, top_k=3)
     if not results:
         return "No relevant information found in the knowledge base."
 
     formatted = []
-    for r in results:
-        formatted.append(
-            f"[Source: {r['title']} | {r['source_url']}]\n{r['content'][:500]}"
-        )
+    for item in results:
+        metadata = item["source_metadata"]
+        title = metadata.get("title", "Unknown")
+        source_url = metadata.get("source_url", "")
+        preview = item["text"][:500]
+        formatted.append(f"[Source: {title} | {source_url}]\n{preview}")
     return "\n\n---\n\n".join(formatted)
+
+
+def build_context_prompt(message: str, context_items: list[dict]) -> str:
+    """Build a retrieval-augmented prompt for the Groq chat model."""
+    if context_items:
+        context_block = "\n\n".join(
+            f"Chunk {idx + 1} (similarity: {item['similarity_score']:.3f})\n{item['text']}"
+            for idx, item in enumerate(context_items)
+        )
+        return (
+            f"Context:\n{context_block}\n\n"
+            f"User Question:\n{message}\n\n"
+            "Instructions:\n"
+            "Answer only using the retrieved context whenever possible. "
+            "If the context is insufficient, respond using general reasoning and clearly indicate that the information was not found in the knowledge base."
+        )
+
+    return (
+        f"Context:\nNo relevant knowledge base context was found.\n\n"
+        f"User Question:\n{message}\n\n"
+        "Instructions:\n"
+        "Answer using general reasoning and clearly indicate that the information was not found in the knowledge base."
+    )
+
+
+async def emit_live_insights_event(session_id: str, speaker: str, text: str):
+    """Append transcript updates and trigger the existing LiveInsights pipeline hooks."""
+    global live_insights_orchestrator
+
+    state = conversation_states.setdefault(session_id, {
+        "transcript": [],
+        "started_at": time.time(),
+    })
+    state["transcript"].append({"speaker": speaker, "text": text})
+
+    if live_insights_orchestrator is None or not HAS_LIVE_INSIGHTS:
+        return
+
+    try:
+        await live_insights_orchestrator.broadcast({
+            "type": "transcript",
+            "speaker": speaker,
+            "text": text,
+            "timestamp": int(time.time() - state["started_at"]),
+        })
+
+        transcript_window = [
+            f"{entry['speaker'].upper()}: {entry['text']}"
+            for entry in state["transcript"][-6:]
+        ]
+        if len(transcript_window) >= 2:
+            signals = await live_insights_orchestrator.signal_extractor.extract_signals("\n".join(transcript_window))
+            if signals:
+                nudges = live_insights_orchestrator.nudge_engine.process_signals(signals)
+                for nudge in nudges:
+                    await live_insights_orchestrator.broadcast({
+                        "type": "nudge",
+                        **nudge,
+                        "timestamp": int(time.time() - state["started_at"]),
+                    })
+    except Exception as e:
+        logger.warning(f"LiveInsights relay skipped: {e}")
 
 
 # ─── Pydantic Models ───────────────────────────────────────────────────────
@@ -266,7 +372,7 @@ def handle_tool_call(name: str, args: dict) -> str:
 
 
 async def chat_with_llm(message: str, session_id: str) -> str:
-    """Send message to Groq LLM with tool use support."""
+    """Send message to Groq LLM with retrieval-augmented prompting and lightweight LiveInsights updates."""
     client = get_groq_client()
     if client is None:
         return "I'm sorry, I'm having a technical issue right now. Please try again in a moment or contact us at careers@talentbridge.example.com."
@@ -278,7 +384,11 @@ async def chat_with_llm(message: str, session_id: str) -> str:
         ]
 
     history = conversation_histories[session_id]
-    history.append({"role": "user", "content": message})
+
+    # Integration point: retrieve KB context once per user turn and build a context-aware prompt.
+    context_items = retrieve_relevant_context(message, top_k=3)
+    augmented_prompt = build_context_prompt(message, context_items)
+    history.append({"role": "user", "content": augmented_prompt})
 
     # Keep history manageable (last 20 messages + system)
     if len(history) > 21:
@@ -354,6 +464,13 @@ async def chat_with_llm(message: str, session_id: str) -> str:
             assistant_reply = msg.content
 
         history.append({"role": "assistant", "content": assistant_reply})
+
+        # Integration point: keep conversation state and stream transcript-like updates to LiveInsights.
+        try:
+            await emit_live_insights_event(session_id, "agent", assistant_reply)
+        except Exception as e:
+            logger.warning(f"LiveInsights emit failed: {e}")
+
         return assistant_reply
 
     except Exception as e:
@@ -364,22 +481,46 @@ async def chat_with_llm(message: str, session_id: str) -> str:
         return "I apologize, but I'm experiencing a brief technical issue. Could you repeat that?"
 
 
+# ─── Startup / Shutdown ───────────────────────────────────────────────────
+
+@app.on_event("startup")
+async def startup_event():
+    """Initialize the optional LiveInsights bridge so the dashboard can receive transcript updates."""
+    global live_insights_orchestrator, live_insights_server
+    if not HAS_LIVE_INSIGHTS:
+        return
+
+    if live_insights_orchestrator is None:
+        live_insights_orchestrator = PipelineOrchestrator(mode="simulated")
+
+    if live_insights_server is None:
+        try:
+            live_insights_server = await run_dashboard_server(live_insights_orchestrator, port=8765)
+            logger.info("LiveInsights dashboard bridge started on ws://localhost:8765")
+        except Exception as e:
+            logger.warning(f"Could not start LiveInsights dashboard bridge: {e}")
+
+
 # ─── Endpoints ──────────────────────────────────────────────────────────────
 
 @app.get("/", response_class=HTMLResponse)
 async def serve_web_client():
-    """Serve the web calling interface."""
+    """Serve the web calling interface from the frontend directory next to this file."""
     index_path = os.path.join(WEB_DIR, "index.html")
     if os.path.exists(index_path):
         with open(index_path, "r", encoding="utf-8") as f:
             return HTMLResponse(content=f.read())
-    return HTMLResponse(content="<h1>Web client not found. Run from project root.</h1>")
+    return HTMLResponse(content="<h1>Web client not found.</h1>")
 
 
 @app.post("/api/chat")
 async def chat_endpoint(request: ChatRequest):
     """Main chat endpoint — receives text, returns LLM response."""
     logger.info(f"[{request.session_id[:8]}] User: {request.message[:100]}")
+    try:
+        await emit_live_insights_event(request.session_id, "user", request.message)
+    except Exception as e:
+        logger.warning(f"Initial LiveInsights transcript emit failed: {e}")
     response = await chat_with_llm(request.message, request.session_id)
     logger.info(f"[{request.session_id[:8]}] Bot: {response[:100]}")
     return {
