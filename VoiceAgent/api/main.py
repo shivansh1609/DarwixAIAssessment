@@ -34,6 +34,7 @@ from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import FileResponse, HTMLResponse
 from fastapi.staticfiles import StaticFiles
 from pydantic import BaseModel, Field
+import importlib
 import uvicorn
 
 # Add KnowledgeBase and LiveInsights paths for minimal module integration
@@ -63,19 +64,9 @@ except ImportError:
     HAS_EDGE_TTS = False
     logger.warning("edge-tts not installed. Run: pip install edge-tts")
 
-try:
-    from indexer import KnowledgeBaseIndex
-    HAS_KB_INDEX = True
-except Exception as e:
-    HAS_KB_INDEX = False
-    logger.warning(f"KnowledgeBase index import failed: {e}")
-
-try:
-    from orchestrator import PipelineOrchestrator, run_dashboard_server
-    HAS_LIVE_INSIGHTS = True
-except Exception as e:
-    HAS_LIVE_INSIGHTS = False
-    logger.warning(f"LiveInsights integration unavailable: {e}")
+HAS_KB_INDEX = None
+HAS_LIVE_INSIGHTS = None
+_live_insights_module = None
 
 
 def get_groq_client():
@@ -140,6 +131,8 @@ def get_kb_index():
     global _kb_index
     if _kb_index is None:
         try:
+            indexer = importlib.import_module("indexer")
+            KnowledgeBaseIndex = getattr(indexer, "KnowledgeBaseIndex")
             chroma_dir = os.path.join(KB_ROOT, "chroma_db")
             _kb_index = KnowledgeBaseIndex(persist_dir=chroma_dir)
             logger.info(f"KB index loaded: {_kb_index.get_stats()}")
@@ -210,6 +203,24 @@ def build_context_prompt(message: str, context_items: list[dict]) -> str:
     )
 
 
+async def init_live_insights():
+    """Lazy-load LiveInsights components and start the websocket bridge on demand."""
+    global live_insights_orchestrator, live_insights_server, _live_insights_module, HAS_LIVE_INSIGHTS
+    if live_insights_orchestrator is not None:
+        return
+
+    try:
+        if _live_insights_module is None:
+            _live_insights_module = importlib.import_module("orchestrator")
+        live_insights_orchestrator = _live_insights_module.PipelineOrchestrator(mode="simulated")
+        live_insights_server = await _live_insights_module.run_dashboard_server(live_insights_orchestrator, port=8765)
+        HAS_LIVE_INSIGHTS = True
+        logger.info("LiveInsights dashboard bridge started on demand on ws://localhost:8765")
+    except Exception as e:
+        HAS_LIVE_INSIGHTS = False
+        logger.warning(f"Could not initialize LiveInsights on demand: {e}")
+
+
 async def emit_live_insights_event(session_id: str, speaker: str, text: str):
     """Append transcript updates and trigger the existing LiveInsights pipeline hooks."""
     global live_insights_orchestrator
@@ -219,6 +230,9 @@ async def emit_live_insights_event(session_id: str, speaker: str, text: str):
         "started_at": time.time(),
     })
     state["transcript"].append({"speaker": speaker, "text": text})
+
+    if live_insights_orchestrator is None:
+        await init_live_insights()
 
     if live_insights_orchestrator is None or not HAS_LIVE_INSIGHTS:
         return
@@ -485,20 +499,8 @@ async def chat_with_llm(message: str, session_id: str) -> str:
 
 @app.on_event("startup")
 async def startup_event():
-    """Initialize the optional LiveInsights bridge so the dashboard can receive transcript updates."""
-    global live_insights_orchestrator, live_insights_server
-    if not HAS_LIVE_INSIGHTS:
-        return
-
-    if live_insights_orchestrator is None:
-        live_insights_orchestrator = PipelineOrchestrator(mode="simulated")
-
-    if live_insights_server is None:
-        try:
-            live_insights_server = await run_dashboard_server(live_insights_orchestrator, port=8765)
-            logger.info("LiveInsights dashboard bridge started on ws://localhost:8765")
-        except Exception as e:
-            logger.warning(f"Could not start LiveInsights dashboard bridge: {e}")
+    """Startup remains lightweight; LiveInsights is initialized on first use."""
+    return
 
 
 # ─── Endpoints ──────────────────────────────────────────────────────────────
@@ -602,8 +604,8 @@ async def list_escalations():
 @app.get("/api/health")
 async def health_check():
     """Health check."""
-    index = get_kb_index()
-    kb_status = "connected" if index else "unavailable"
+    index = _kb_index
+    kb_status = "connected" if index else "unloaded"
     kb_stats = index.get_stats() if index else {}
     groq_status = "configured" if get_groq_client() else "missing_key"
     return {
