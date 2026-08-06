@@ -22,6 +22,9 @@ VoxIntel AI is an AI Engineering assessment project demonstrating the core build
 The repository consists of four independent modules that showcase voice interaction, knowledge-grounded retrieval (RAG), multilingual localization, and real-time conversational intelligence.
 
 ---
+# 🌐 Live Demo
+
+🚀 **Live Application:** https://voxintel-ai.onrender.com/
 
 # ✨ Features
 
